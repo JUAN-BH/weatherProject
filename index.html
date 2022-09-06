@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherBHC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/mobile.css" />
+  </head>
+  <body>
+    <header>
+      <section class="headerMobileMain">
+        <div class="headerMobileMain__menuIcon menuIconMobile"></div>
+        <h1 class="headerMobileMain__cityName">Cali</h1>
+        <div class="headerMobileMain__saveCity">
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </section>
+      <section class="headerMobileSearch">
+        <div class="headerMobileSearch__menuIcon menuIconMobile"></div>
+        <label class="headerMobileSearch__inputSearch">
+          <span class="inputSearch__searchIcon"></span>
+          <input type="text" placeholder="Search city" />
+        </label>
+      </section>
+      <section class="headerMobileSaved">
+        <div class="headerMobileSaved__menuIcon menuIconMobile"></div>
+        <h1 class="headerMobileSaved__title">Saved cities</h1>
+      </section>
+      <nav class="mobileNav">
+        <ul>
+          <li>
+            <span class="mobileNav__closeMobileNav"></span>
+            <h1>Menu</h1>
+          </li>
+          <li><span class="mobileNav__search"></span> Search city</li>
+          <li><span class="mobileNav__savedIcon"></span> Saved cities</li>
+          <li>
+            <span class="mobileNav__darkIcon"></span> Dark mode
+            <div class="mobileNav__darkMode">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="mainWeather">
+        <article class="mainWeather__infoCity">
+          <ul>
+            <li>Sunrise:</li>
+            <li>Sunset:</li>
+          </ul>
+          <ul>
+            <li>08/31/2022</li>
+            <li>8:29 AM</li>
+          </ul>
+        </article>
+        <article class="mainWeather__Temp">
+          <h1>22°C</h1>
+          <p>Partly Cloud</p>
+        </article>
+        <article class="mainWeather__stats">
+          <div class="stats__pressure">
+            <p>Pressure</p>
+            <p>1018mb</p>
+          </div>
+          <div class="stats__humadity">
+            <p>Humadity</p>
+            <p>78%</p>
+          </div>
+          <div class="stats__wind">
+            <p>Wind speed</p>
+            <p>90 km/h</p>
+          </div>
+        </article>
+      </section>
+      <section class="weatherPerHours">
+        <article class="weatherPerHours__header">
+          <h2>Today</h2>
+          <h2>Next 2 days <span class="header__rightArrow"></span></h2>
+        </article>
+        <article class="weatherPerHours__sliderWeatherHours">
+          <div class="sliderWeatherHours__weatherHour">
+            <h3 class="weatherHour__hour"></h3>
+            <span class="weatherHour__icon"></span>
+            <h3 class="weatherHour__temp"></h3>
+          </div>
+          <div class="sliderWeatherHours__weatherHour">
+            <h3 class="weatherHour__hour"></h3>
+            <span class="weatherHour__icon"></span>
+            <h3 class="weatherHour__temp"></h3>
+          </div>
+          <div class="sliderWeatherHours__weatherHour">
+            <h3 class="weatherHour__hour"></h3>
+            <span class="weatherHour__icon"></span>
+            <h3 class="weatherHour__temp"></h3>
+          </div>
+          <div class="sliderWeatherHours__weatherHour">
+            <h3 class="weatherHour__hour"></h3>
+            <span class="weatherHour__icon"></span>
+            <h3 class="weatherHour__temp"></h3>
+          </div>
+          <div class="sliderWeatherHours__weatherHour">
+            <h3 class="weatherHour__hour"></h3>
+            <span class="weatherHour__icon"></span>
+            <h3 class="weatherHour__temp"></h3>
+          </div>
+          <div class="sliderWeatherHours__weatherHour">
+            <h3 class="weatherHour__hour"></h3>
+            <span class="weatherHour__icon"></span>
+            <h3 class="weatherHour__temp"></h3>
+          </div>
+        </article>
+      </section>
+      <section class="mainSearchMobile">
+        <article class="mainSearchMobile__city">
+          <h2>Hola</h2>
+        </article>
+
+        <article class="mainSearchMobile__city">
+          <h2>Hola</h2>
+        </article>
+      </section>
+      <section class="mainSavedCitiesMobile">
+        <article class="mainSavedCitiesMobile__city">
+          <h2>Hola</h2>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

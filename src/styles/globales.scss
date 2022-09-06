@@ -1,0 +1,127 @@
+$colorText: #19283F;
+$colorPanel: #F3F3F3;
+$colorCards: #FEFEFE;
+$nightColor: #19283F;
+$nightPanel:#2E4669;
+$nightCards:#566F95;
+$green: #CCE16A;
+$white: #fff;
+
+$breakPoints: (sm: 640px,
+    md: 7680px,
+    lg: 1024px,
+);
+
+@mixin media-up($breakPoint) {
+    @media screen and (min-width: map-get($breakPoints, $breakPoint)) {
+        @content;
+    }
+}
+
+@mixin switchBtn($widthSlider, $heightSlider, $positionUpSlider, $positionLeftSlider, $positionBLeftSlider, $widthSwitch, $heightSwitch) {
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: $widthSwitch;
+        height: $heightSwitch;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: $positionLeftSlider;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        width: $widthSlider;
+        height: $heightSlider;
+        left: $positionBLeftSlider;
+        top: $positionUpSlider;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(16px);
+        -ms-transform: translateX(16px);
+        transform: translateX(16px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+}
+
+@mixin stats($background, $text, $width, $height) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: $width;
+    height: $height;
+    color: $text;
+    text-align: center;
+    background-color: $background;
+    border-radius: 8px;
+}
+
+@mixin icons($url, $width, $height, $navMobile: false) {
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background: url($url) center no-repeat;
+
+    @if $navMobile {
+        margin-right: 12px;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Inter', sans-serif;
+    color: $colorText;
+}
+
+h1 {
+    font-size: 2.4rem;
+
+}
+
+.menuIconMobile {
+    width: 30px;
+    height: 30px;
+    background: url("../assets/icons/menu_icon.svg") center no-repeat;
+}

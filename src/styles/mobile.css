@@ -1,0 +1,385 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+  color: #19283F;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+.menuIconMobile {
+  width: 30px;
+  height: 30px;
+  background: url("../assets/icons/menu_icon.svg") center no-repeat;
+}
+
+body {
+  padding: 12px 22px;
+}
+
+.headerMobileMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.headerMobileMain__cityName {
+  margin: 0 auto;
+  font-size: 2.8rem;
+}
+.headerMobileMain__saveCity {
+  /* Rounded sliders */
+}
+.headerMobileMain__saveCity .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+.headerMobileMain__saveCity .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.headerMobileMain__saveCity .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 5px;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.headerMobileMain__saveCity .slider:before {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  left: 2px;
+  top: 1.8px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.headerMobileMain__saveCity input:checked + .slider {
+  background-color: #2196F3;
+}
+.headerMobileMain__saveCity input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+.headerMobileMain__saveCity input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+.headerMobileMain__saveCity .slider.round {
+  border-radius: 34px;
+}
+.headerMobileMain__saveCity .slider.round:before {
+  border-radius: 50%;
+}
+
+.headerMobileSearch {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerMobileSearch__inputSearch {
+  display: flex;
+  align-items: center;
+  width: 85%;
+  height: 31px;
+  padding: 9px 7px;
+  border-radius: 8px;
+  background-color: #F3F3F3;
+}
+.headerMobileSearch__inputSearch input {
+  width: 70%;
+  padding: 4px;
+  font-size: 1.6rem;
+  border: none;
+  background-color: #F3F3F3;
+}
+.headerMobileSearch__inputSearch input:focus {
+  outline: none;
+}
+.headerMobileSearch__inputSearch .inputSearch__searchIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/icons/searchIcon.svg") center no-repeat;
+}
+
+.headerMobileSaved {
+  display: none;
+}
+.headerMobileSaved__title {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mobileNav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -800px;
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+  padding: 23px;
+  background-color: #fff;
+}
+.mobileNav ul {
+  list-style: none;
+}
+.mobileNav ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  font-size: 1.6rem;
+}
+.mobileNav ul li:first-child {
+  margin-bottom: 34px;
+}
+.mobileNav__closeMobileNav {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/icons/closeMenu.svg") center no-repeat;
+  margin-right: 12px;
+}
+.mobileNav__search {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/icons/searchIcon.svg") center no-repeat;
+  margin-right: 12px;
+}
+.mobileNav__savedIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/icons/savedIcons.svg") center no-repeat;
+  margin-right: 12px;
+}
+.mobileNav__darkIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/icons/moonIcon.svg") center no-repeat;
+  margin-right: 12px;
+}
+.mobileNav__darkMode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  /* Rounded sliders */
+}
+.mobileNav__darkMode .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 16px;
+}
+.mobileNav__darkMode .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.mobileNav__darkMode .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: -4px;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.mobileNav__darkMode .slider:before {
+  position: absolute;
+  content: "";
+  width: 12px;
+  height: 12px;
+  left: 0px;
+  top: 1.8px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.mobileNav__darkMode input:checked + .slider {
+  background-color: #2196F3;
+}
+.mobileNav__darkMode input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+.mobileNav__darkMode input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+.mobileNav__darkMode .slider.round {
+  border-radius: 34px;
+}
+.mobileNav__darkMode .slider.round:before {
+  border-radius: 50%;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  padding: 25px 0px;
+}
+main .mainWeather {
+  position: relative;
+  min-width: 280px;
+  height: 295px;
+  padding: 18px;
+  border-radius: 8px;
+  background-color: #c3c3c3;
+}
+main .mainWeather .mainWeather__infoCity {
+  display: flex;
+  justify-content: space-between;
+  align-items: align;
+}
+main .mainWeather .mainWeather__infoCity ul {
+  list-style: none;
+  font-size: 1.2rem;
+}
+main .mainWeather .mainWeather__Temp {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  place-items: center;
+  padding-top: 40px;
+}
+main .mainWeather .mainWeather__Temp h1 {
+  font-size: 6.4rem;
+}
+main .mainWeather .mainWeather__Temp p {
+  font-size: 1.6rem;
+}
+main .mainWeather .mainWeather__stats {
+  position: absolute;
+  left: calc(50% - 152px);
+  bottom: -30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 304px;
+  height: 80px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+}
+main .mainWeather .mainWeather__stats .stats__pressure {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 82px;
+  height: 59px;
+  color: #fff;
+  text-align: center;
+  background-color: #19283F;
+  border-radius: 8px;
+}
+main .mainWeather .mainWeather__stats .stats__humadity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 82px;
+  height: 59px;
+  color: #19283F;
+  text-align: center;
+  background-color: #CCE16A;
+  border-radius: 8px;
+}
+main .mainWeather .mainWeather__stats .stats__wind {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 82px;
+  height: 59px;
+  color: #19283F;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+}
+main .weatherPerHours {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  row-gap: 18px;
+  padding-top: 65px;
+}
+main .weatherPerHours .weatherPerHours__header {
+  display: flex;
+  justify-content: space-between;
+}
+main .weatherPerHours .weatherPerHours__header h2 {
+  font-size: 1.8rem;
+}
+main .weatherPerHours .weatherPerHours__sliderWeatherHours {
+  display: -webkit-box;
+  width: 100%;
+  height: 170px;
+  margin: auto;
+  border-radius: 12px;
+  overflow-x: scroll;
+}
+main .weatherPerHours .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
+  width: 80px;
+  height: 90%;
+  margin: auto 0;
+  margin-right: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+  background-color: #F3F3F3;
+}
+main .mainSearchMobile {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+main .mainSearchMobile__city {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 284px;
+  height: 87px;
+  padding: 15px;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  background-color: #c3c3c3;
+}
+main .mainSavedCitiesMobile {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+main .mainSavedCitiesMobile__city {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 284px;
+  height: 87px;
+  padding: 15px;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  background-color: #c3c3c3;
+}
+
+/*# sourceMappingURL=mobile.css.map */
