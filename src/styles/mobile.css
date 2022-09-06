@@ -14,6 +14,10 @@ h1 {
   font-size: 2.4rem;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .menuIconMobile {
   width: 30px;
   height: 30px;
@@ -88,7 +92,7 @@ body {
 }
 
 .headerMobileSearch {
-  display: none;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -119,7 +123,7 @@ body {
 }
 
 .headerMobileSaved {
-  display: none;
+  display: flex;
 }
 .headerMobileSaved__title {
   margin: 0 auto;
@@ -130,11 +134,12 @@ body {
   display: block;
   position: fixed;
   top: 0;
-  left: -800px;
+  left: 0px;
   z-index: 5;
   width: 100%;
   height: 100vh;
   padding: 23px;
+  transition: all 0.5s;
   background-color: #fff;
 }
 .mobileNav ul {
@@ -156,7 +161,7 @@ body {
   background: url("../assets/icons/closeMenu.svg") center no-repeat;
   margin-right: 12px;
 }
-.mobileNav__search {
+.mobileNav__searchIcon {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -235,6 +240,10 @@ body {
   border-radius: 50%;
 }
 
+.mobileNav_Hidden {
+  left: -800px;
+}
+
 main {
   position: relative;
   width: 100%;
@@ -283,6 +292,9 @@ main .mainWeather .mainWeather__stats {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
   background-color: #fff;
 }
+main .mainWeather .mainWeather__stats div p:first-child {
+  padding-bottom: 10px;
+}
 main .mainWeather .mainWeather__stats .stats__pressure {
   display: flex;
   flex-direction: column;
@@ -330,6 +342,16 @@ main .weatherPerHours .weatherPerHours__header {
 main .weatherPerHours .weatherPerHours__header h2 {
   font-size: 1.8rem;
 }
+main .weatherPerHours .weatherPerHours__header h2:last-child {
+  display: flex;
+  align-items: center;
+}
+main .weatherPerHours .weatherPerHours__header .header__rightArrow {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../assets/icons/rightArrow.svg") center no-repeat;
+}
 main .weatherPerHours .weatherPerHours__sliderWeatherHours {
   display: -webkit-box;
   width: 100%;
@@ -339,16 +361,21 @@ main .weatherPerHours .weatherPerHours__sliderWeatherHours {
   overflow-x: scroll;
 }
 main .weatherPerHours .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 80px;
   height: 90%;
   margin: auto 0;
   margin-right: 20px;
+  padding: 12px;
   border-radius: 12px;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
   background-color: #F3F3F3;
 }
 main .mainSearchMobile {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -365,7 +392,7 @@ main .mainSearchMobile__city {
   background-color: #c3c3c3;
 }
 main .mainSavedCitiesMobile {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
