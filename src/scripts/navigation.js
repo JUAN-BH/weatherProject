@@ -1,3 +1,6 @@
+window.addEventListener("DOMContentLoaded", navigation, false);
+window.addEventListener("hashchange", navigation, false);
+
 function renderSearchMobile() {
   mainHeaderMobile.classList.add("hidden");
   savedCitiesHeaderMobile.classList.add("hidden");
@@ -7,9 +10,9 @@ function renderSearchMobile() {
   mainSavedCitiesMobile.classList.add("hidden");
   mainSearchMobile.classList.remove("hidden");
 
+  searchCityInput.focus();
   mobileNav.classList.toggle("mobileNav_Hidden");
 }
-
 function renderSaveCitiesMobile() {
   mainHeaderMobile.classList.add("hidden");
   searchHeaderMobile.classList.add("hidden");
@@ -21,7 +24,6 @@ function renderSaveCitiesMobile() {
 
   mobileNav.classList.toggle("mobileNav_Hidden");
 }
-
 function renderMainMobile() {
   searchHeaderMobile.classList.add("hidden");
   savedCitiesHeaderMobile.classList.add("hidden");
@@ -33,6 +35,13 @@ function renderMainMobile() {
 
   mobileNav.classList.toggle("mobileNav_Hidden");
 }
+
+function navigation() {
+  if (location.hash.startsWith("#dataCity=")) {
+    renderMainMobile();
+  }
+}
+
 menuIconMobile.forEach((e) => {
   e.addEventListener("click", () => {
     mobileNav.classList.toggle("mobileNav_Hidden");

@@ -382,11 +382,11 @@ main .mainSearchMobile {
 }
 main .mainSearchMobile__city {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
   width: 284px;
   height: 87px;
-  padding: 15px;
+  padding: 25px;
   margin-bottom: 32px;
   border-radius: 8px;
   background-color: #c3c3c3;
