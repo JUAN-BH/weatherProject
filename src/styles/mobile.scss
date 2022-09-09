@@ -4,8 +4,6 @@ body {
     padding: 12px 22px;
 }
 
-
-
 .headerMobileMain {
     display: flex;
     align-items: center;
@@ -128,7 +126,6 @@ body {
 .mobileNav_Hidden {
     left: -800px;
 }
-
 
 main {
     position: relative;
@@ -253,6 +250,11 @@ main {
                 background-color: $colorPanel;
             }
 
+            .weatherHour__icon {
+                width: 50px;
+                height: 50px;
+                object-fit: center
+            }
         }
     }
 
@@ -267,10 +269,10 @@ main {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 284px;
+            width: 100%;
             height: 87px;
             padding: 25px;
-            margin-bottom: 32px;
+            margin-bottom: 22px;
             border-radius: 8px;
             background-color: #c3c3c3;
         }
@@ -287,12 +289,43 @@ main {
             display: flex;
             justify-content: start;
             align-items: center;
-            width: 284px;
+            width: 100%;
             height: 87px;
             padding: 15px;
             margin-bottom: 32px;
             border-radius: 8px;
             background-color: #c3c3c3;
         }
+    }
+}
+
+.modalLoading {
+    @include modal();
+
+    &__logo {
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: url("../assets/icons/weatherIcon.svg") center/contain no-repeat;
+        animation: pulse 0.8s infinite;
+    }
+}
+
+.modalFirstLoading {
+    @include modal();
+    background-color: $white;
+
+    &__logo {
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: url("../assets/icons/weatherIcon.svg") center/contain no-repeat;
+        animation: pulse 0.8s infinite;
     }
 }

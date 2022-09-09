@@ -11,6 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="icon" href="./src/assets/icons/weatherIcon.svg" />
     <link rel="stylesheet" href="./src/styles/mobile.css" />
   </head>
@@ -103,30 +107,30 @@
             Next 2 days <span class="header__rightArrow"></span>
           </h2>
         </article>
-        <article class="weatherPerHours__sliderWeatherHours">
-          <!-- <div class="sliderWeatherHours__weatherHour">
-            <h3 class="weatherHour__hour">00:00</h3>
-            <span class="weatherHour__icon">icon</span>
-            <h3 class="weatherHour__temp">20°C</h3>
-          </div> -->
-        </article>
+        <article class="weatherPerHours__sliderWeatherHours"></article>
       </section>
-      <section class="mainSearchMobile hidden">
-        <article class="mainSearchMobile__city">
-          <h2 class="cityName">Hola</h2>
-          <h2 class="cityTemp">20°C</h2>
-        </article>
-      </section>
+      <section class="mainSearchMobile hidden"></section>
       <section class="mainSavedCitiesMobile hidden">
         <article class="mainSavedCitiesMobile__city">
           <h2 class="cityName">Hola</h2>
         </article>
       </section>
     </main>
+    <section class="modalLoading hidden">
+      <span class="modalLoading__logo animate__animated"></span>
+    </section>
+    <section class="modalFirstLoading hidden">
+      <span class="modalFirstLoading__logo animate__animated"></span>
+    </section>
     <script
       src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
       charset="utf-8"
     ></script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQ1sqLuNyKOq03y-2Oj6lbIxOQtYnEwk&callback=initMap"
+    ></script>
+
     <script src="./src/scripts/nodes.js"></script>
     <script src="./src/scripts/navigation.js"></script>
     <script src="./src/scripts/cities.js"></script>

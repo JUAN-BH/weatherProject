@@ -1,3 +1,4 @@
+//*Utils
 const api = axios.create({
   baseURL: "http://api.weatherapi.com/v1/",
   params: {
@@ -5,6 +6,49 @@ const api = axios.create({
   },
 });
 
+function showPosition(position) {
+  lat = position.coords.latitude;
+  lon = position.coords.longitude;
+  displayLocation(lat, lon);
+}
+
+function showError(error) {
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation.";
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable.";
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out.";
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred.";
+      break;
+  }
+}
+
+function displayLocation(latitude, longitude) {
+  const geocoder = new google.maps.Geocoder();
+  const latlng = new google.maps.LatLng(latitude, longitude);
+
+  geocoder.geocode({ latLng: latlng }, function (results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[0]) {
+        const location = results[0].formatted_address.split(",");
+        const city = location[1];
+        searchUserCity(city);
+      } else {
+        alert("location not found");
+      }
+    } else {
+      alert("Geocoder failed due to", status);
+    }
+  });
+}
+
+//*Renders
 function renderSearchCity(data) {
   const cityItem = document.createElement("article");
   cityItem.classList.add("mainSearchMobile__city");
@@ -23,6 +67,7 @@ function renderSearchCity(data) {
     const { data, status } = await api(
       `forecast.json?q=${cityNameFound}&aqi=no`
     );
+    console.log("forescast", data);
     renderDataCity(data);
   });
 }
@@ -43,23 +88,41 @@ function renderDataCity(data) {
       return `
         <div class="sliderWeatherHours__weatherHour">
             <h3 class="weatherHour__hour">${e.time.split(" ")[1]}</h3>
-            <span class="weatherHour__icon">icon</span>
+            <img src="${e.condition.icon}" alt="" class="weatherHour__icon">
             <h3 class="weatherHour__temp">${e.temp_c}°C</h3>
         </div>
     `;
     })
-    .join(",");
+    .join(" ");
   weatherPerHoursSlider.innerHTML = byHours;
 
   location.hash = `#dataCity=${data.location.name}`;
-  mobileNav.classList.toggle("mobileNav_Hidden");
-}
-async function searchCity(cityName) {
-  const { data, status } = await api(`current.json?q=${cityName}&aqi=no`);
-  console.log(data);
-  renderSearchCity(data);
+  // mobileNav.classList.add("mobileNav_Hidden");
 }
 
+//*Queries
+async function searchCity(cityName) {
+  modalLoading.classList.remove("hidden");
+  const { data, status } = await api(`current.json?q=${cityName}&aqi=no`);
+  renderSearchCity(data);
+  modalLoading.classList.add("hidden");
+}
+
+async function searchUserCity(cityName) {
+  const { data, status } = await api(`forecast.json?q=${cityName}&aqi=no`);
+  console.log("userCity", data);
+  renderDataCity(data);
+}
+
+function getUserCity() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+  }
+}
+
+//*Actions
 searchCityInput.addEventListener("keypress", (e) => {
   if (e.keyCode === 13) {
     const inputValue =
@@ -68,3 +131,5 @@ searchCityInput.addEventListener("keypress", (e) => {
     searchCity(inputValue);
   }
 });
+
+getUserCity();

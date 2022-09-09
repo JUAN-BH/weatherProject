@@ -11,7 +11,7 @@ function renderSearchMobile() {
   mainSearchMobile.classList.remove("hidden");
 
   searchCityInput.focus();
-  mobileNav.classList.toggle("mobileNav_Hidden");
+  mobileNav.classList.add("mobileNav_Hidden");
 }
 function renderSaveCitiesMobile() {
   mainHeaderMobile.classList.add("hidden");
@@ -22,7 +22,7 @@ function renderSaveCitiesMobile() {
   mainSearchMobile.classList.add("hidden");
   mainSavedCitiesMobile.classList.remove("hidden");
 
-  mobileNav.classList.toggle("mobileNav_Hidden");
+  mobileNav.classList.add("mobileNav_Hidden");
 }
 function renderMainMobile() {
   searchHeaderMobile.classList.add("hidden");
@@ -33,7 +33,7 @@ function renderMainMobile() {
   mainWeather.classList.remove("hidden");
   weatherPerHours.classList.remove("hidden");
 
-  mobileNav.classList.toggle("mobileNav_Hidden");
+  mobileNav.classList.add("mobileNav_Hidden");
 }
 
 function navigation() {
@@ -44,11 +44,11 @@ function navigation() {
 
 menuIconMobile.forEach((e) => {
   e.addEventListener("click", () => {
-    mobileNav.classList.toggle("mobileNav_Hidden");
+    mobileNav.classList.remove("mobileNav_Hidden");
   });
 });
 closeNavMobile.addEventListener("click", () => {
-  mobileNav.classList.toggle("mobileNav_Hidden");
+  mobileNav.classList.add("mobileNav_Hidden");
 });
 mobileMainBtn.addEventListener("click", renderMainMobile);
 mobileSearchBtn.addEventListener("click", renderSearchMobile);

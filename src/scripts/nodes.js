@@ -30,3 +30,6 @@ const pressure = $(".pressureInfo");
 const humadity = $(".humadityInfo");
 const windSpeed = $(".windSpeedInfo");
 const twoDaysMore = $(".twoDaysMore");
+//*Modals
+const modalLoading = $(".modalLoading");
+const modalFirstLoading = $(".modalFirstLoading");
