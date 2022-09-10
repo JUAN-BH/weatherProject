@@ -4,10 +4,13 @@ window.addEventListener("hashchange", navigation, false);
 function renderSearchMobile() {
   mainHeaderMobile.classList.add("hidden");
   savedCitiesHeaderMobile.classList.add("hidden");
+  nextDaysHeaderMobile.classList.add("hidden");
   searchHeaderMobile.classList.remove("hidden");
+
   mainWeather.classList.add("hidden");
   weatherPerHours.classList.add("hidden");
   mainSavedCitiesMobile.classList.add("hidden");
+  mainNext2Days.classList.add("hidden");
   mainSearchMobile.classList.remove("hidden");
 
   searchCityInput.focus();
@@ -17,9 +20,12 @@ function renderSaveCitiesMobile() {
   mainHeaderMobile.classList.add("hidden");
   searchHeaderMobile.classList.add("hidden");
   savedCitiesHeaderMobile.classList.remove("hidden");
+  nextDaysHeaderMobile.classList.add("hidden");
+
   mainWeather.classList.add("hidden");
   weatherPerHours.classList.add("hidden");
   mainSearchMobile.classList.add("hidden");
+  mainNext2Days.classList.add("hidden");
   mainSavedCitiesMobile.classList.remove("hidden");
 
   mobileNav.classList.add("mobileNav_Hidden");
@@ -27,11 +33,28 @@ function renderSaveCitiesMobile() {
 function renderMainMobile() {
   searchHeaderMobile.classList.add("hidden");
   savedCitiesHeaderMobile.classList.add("hidden");
+  nextDaysHeaderMobile.classList.add("hidden");
   mainHeaderMobile.classList.remove("hidden");
+
   mainSearchMobile.classList.add("hidden");
   mainSavedCitiesMobile.classList.add("hidden");
+  mainNext2Days.classList.add("hidden");
   mainWeather.classList.remove("hidden");
   weatherPerHours.classList.remove("hidden");
+
+  mobileNav.classList.add("mobileNav_Hidden");
+}
+function renderNextDays() {
+  mainHeaderMobile.classList.add("hidden");
+  savedCitiesHeaderMobile.classList.add("hidden");
+  searchHeaderMobile.classList.add("hidden");
+  nextDaysHeaderMobile.classList.remove("hidden");
+
+  mainWeather.classList.add("hidden");
+  weatherPerHours.classList.add("hidden");
+  mainSavedCitiesMobile.classList.add("hidden");
+  mainSearchMobile.classList.add("hidden");
+  mainNext2Days.classList.remove("hidden");
 
   mobileNav.classList.add("mobileNav_Hidden");
 }
@@ -41,6 +64,9 @@ function navigation() {
     renderMainMobile();
   }
 }
+
+twoDaysMore.addEventListener("click", renderNextDays);
+arroBackNextDays.addEventListener("click", renderMainMobile);
 
 menuIconMobile.forEach((e) => {
   e.addEventListener("click", () => {

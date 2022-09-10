@@ -4,13 +4,16 @@ const $$ = (element) => document.querySelectorAll(element);
 const mainHeaderMobile = $(".headerMobileMain");
 const searchHeaderMobile = $(".headerMobileSearch");
 const savedCitiesHeaderMobile = $(".headerMobileSaved");
+const nextDaysHeaderMobile = $(".headerMobileNextDays");
 const mobileNav = $(".mobileNav");
 const mainWeather = $(".mainWeather");
 const weatherPerHours = $(".weatherPerHours");
 const weatherPerHoursSlider = $(".weatherPerHours__sliderWeatherHours");
 const mainSearchMobile = $(".mainSearchMobile");
 const mainSavedCitiesMobile = $(".mainSavedCitiesMobile");
+const mainNext2Days = $(".mainNext2Days");
 //*Elements
+const arroBackNextDays = $(".headerMobileNextDays__arrowBack");
 const menuIconMobile = $$(".menuIconMobile");
 const closeNavMobile = $(".mobileNav__closeMobileNav");
 const mobileMainBtn = $(".mobileNav__main");
@@ -30,6 +33,10 @@ const pressure = $(".pressureInfo");
 const humadity = $(".humadityInfo");
 const windSpeed = $(".windSpeedInfo");
 const twoDaysMore = $(".twoDaysMore");
+
+const searchedCityModal = $(".citySearched");
+const closeModalFailed = $(".closeModalFail");
 //*Modals
 const modalLoading = $(".modalLoading");
 const modalFirstLoading = $(".modalFirstLoading");
+const modalFail = $(".modalFail");

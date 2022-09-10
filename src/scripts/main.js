@@ -51,6 +51,7 @@ function displayLocation(latitude, longitude) {
 //*Renders
 function renderSearchCity(data) {
   const cityItem = document.createElement("article");
+  cityItem.setAttribute("id", data.location.name);
   cityItem.classList.add("mainSearchMobile__city");
   const cityName = document.createElement("h2");
   cityName.classList.add("cityName");
@@ -61,11 +62,25 @@ function renderSearchCity(data) {
   cityTemp.innerText = data.current.temp_c + "°C";
   cityItem.appendChild(cityName);
   cityItem.appendChild(cityTemp);
-  mainSearchMobile.appendChild(cityItem);
+
+  let citiesSearched = [];
+  for (const city of mainSearchMobile.childNodes.entries()) {
+    citiesSearched.push(city);
+  }
+  citiesSearched = citiesSearched
+    .flat()
+    .filter((e) => isNaN(e))
+    .map((e) => e.id);
+
+  // console.log(citiesSearched);
+
+  if (!citiesSearched.includes(cityItem.getAttribute("id"))) {
+    mainSearchMobile.appendChild(cityItem);
+  }
 
   cityItem.addEventListener("click", async (event) => {
     const { data, status } = await api(
-      `forecast.json?q=${cityNameFound}&aqi=no`
+      `forecast.json?q=${cityNameFound}&days=3&aqi=no`
     );
     console.log("forescast", data);
     renderDataCity(data);
@@ -95,21 +110,61 @@ function renderDataCity(data) {
     })
     .join(" ");
   weatherPerHoursSlider.innerHTML = byHours;
-
+  renderNextDays(data.forecast.forecastday);
   location.hash = `#dataCity=${data.location.name}`;
   // mobileNav.classList.add("mobileNav_Hidden");
+}
+function renderNextDays(data) {
+  mainNext2Days.innerHTML = "";
+  data.forEach((e) => {
+    const dayCityItem = document.createElement("article");
+    // dayCityItem.setAttribute("id", data.location.name);
+    dayCityItem.classList.add("mainNext2Days__city");
+    const date = document.createElement("p");
+    date.classList.add("city__dayDate");
+    date.innerText = e.date;
+
+    const cityInfo = document.createElement("div");
+    cityInfo.classList.add("city__info");
+    const cityTemp = document.createElement("h2"); //°C
+    cityTemp.classList.add("info__temp");
+    cityTemp.innerText = e.day.maxtemp_c + "°C";
+    const cityCondition = document.createElement("p");
+    cityCondition.classList.add("info__cityCondition");
+    cityCondition.innerText = e.day.condition.text;
+    cityInfo.appendChild(cityTemp);
+    cityInfo.appendChild(cityCondition);
+
+    dayCityItem.appendChild(date);
+    dayCityItem.appendChild(cityInfo);
+    mainNext2Days.appendChild(dayCityItem);
+  });
+
+  // cityItem.addEventListener("click",  (event) => {
+  //   renderDataCity(data);
+  // });
 }
 
 //*Queries
 async function searchCity(cityName) {
   modalLoading.classList.remove("hidden");
-  const { data, status } = await api(`current.json?q=${cityName}&aqi=no`);
-  renderSearchCity(data);
+  try {
+    const { data, status } = await api(`current.json?q=${cityName}&aqi=no`);
+    renderSearchCity(data);
+  } catch (e) {
+    searchedCityModal.innerText = cityName;
+    modalFail.classList.remove("hidden");
+    closeModalFailed.addEventListener("click", (e) => {
+      modalFail.classList.add("hidden");
+    });
+  }
   modalLoading.classList.add("hidden");
 }
 
 async function searchUserCity(cityName) {
-  const { data, status } = await api(`forecast.json?q=${cityName}&aqi=no`);
+  const { data, status } = await api(
+    `forecast.json?q=${cityName}&days=3&aqi=no`
+  );
   console.log("userCity", data);
   renderDataCity(data);
 }

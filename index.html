@@ -45,6 +45,10 @@
         <div class="headerMobileSaved__menuIcon menuIconMobile"></div>
         <h1 class="headerMobileSaved__title">Saved cities</h1>
       </section>
+      <section class="headerMobileNextDays hidden">
+        <div class="headerMobileNextDays__arrowBack"></div>
+        <h1 class="headerMobileNextDays__title">Next to days</h1>
+      </section>
       <nav class="mobileNav mobileNav_Hidden">
         <ul>
           <li>
@@ -109,6 +113,15 @@
         </article>
         <article class="weatherPerHours__sliderWeatherHours"></article>
       </section>
+      <section class="mainNext2Days">
+        <!-- <article class="mainNext2Days__city">
+            <p class="city__dayDate">2022-09-09</p>
+          <div class="city__info">
+            <h2 class="info__temp">Hola</h2>
+            <p class="info__cityCondition">Partly cloudy</p>
+          </div>
+        </article> -->
+      </section>
       <section class="mainSearchMobile hidden"></section>
       <section class="mainSavedCitiesMobile hidden">
         <article class="mainSavedCitiesMobile__city">
@@ -118,6 +131,14 @@
     </main>
     <section class="modalLoading hidden">
       <span class="modalLoading__logo animate__animated"></span>
+    </section>
+    <section class="modalFail hidden">
+      <article>
+        <h2>
+          we couldn't find the city 
+          <span class="citySearched"></span>
+        </h2>
+        <button class="closeModalFail">Please try again</button>
     </section>
     <section class="modalFirstLoading hidden">
       <span class="modalFirstLoading__logo animate__animated"></span>

@@ -1,0 +1,132 @@
+.headerMobileMain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__cityName {
+        margin: 0 auto;
+        font-size: 2.8rem;
+    }
+
+    &__saveCity {
+        @include switchBtn(16px, 16px, 1.8px, 5px, 2px, 40px, 20px);
+    }
+}
+
+.headerMobileSearch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+
+    &__inputSearch {
+        display: flex;
+        align-items: center;
+        width: 85%;
+        height: 31px;
+        // margin-left: 16px;
+        padding: 9px 7px;
+        border-radius: 8px;
+        background-color: $colorPanel;
+
+        input {
+            width: 70%;
+            padding: 4px;
+
+            font-size: 1.6rem;
+            border: none;
+            background-color: $colorPanel;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .inputSearch__searchIcon {
+            // margin-right: 10px;
+            @include icons("../assets/icons/searchIcon.svg", 20px, 20px);
+        }
+    }
+}
+
+.headerMobileSaved {
+    display: flex;
+
+    // align-items: center;
+    &__title {
+        margin: 0 auto;
+        text-align: center
+    }
+}
+
+.mobileNav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    z-index: 5;
+    width: 100%;
+    height: 100vh;
+    padding: 23px;
+    transition: all 0.5s;
+    background-color: $white;
+
+    ul {
+        list-style: none;
+    }
+
+    ul li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 32px;
+        font-size: 1.6rem;
+    }
+
+    ul li:first-child {
+        margin-bottom: 34px;
+    }
+
+    &__closeMobileNav {
+        @include icons("../assets/icons/closeMenu.svg", 20px, 20px, $navMobile: true);
+    }
+
+    &__searchIcon {
+        @include icons("../assets/icons/searchIcon.svg", 20px, 20px, $navMobile: true);
+    }
+
+    &__savedIcon {
+        @include icons("../assets/icons/savedIcons.svg", 20px, 20px, $navMobile: true);
+    }
+
+    &__darkIcon {
+        @include icons("../assets/icons/moonIcon.svg", 20px, 20px, $navMobile: true);
+    }
+
+    &__darkMode {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+        @include switchBtn(12px, 12px, 1.8px, -4px, 0px, 25px, 16px);
+    }
+
+}
+
+.mobileNav_Hidden {
+    left: -800px;
+}
+
+.headerMobileNextDays {
+    display: flex;
+    align-items: center;
+
+    &__title {
+        margin: 0 auto;
+        text-align: center
+    }
+
+    &__arrowBack {
+        @include icons("../assets/icons/leftArrow.svg", 20px, 20px)
+    }
+}
