@@ -7,6 +7,14 @@ main {
     width: 100%;
     padding: 25px 0px;
 
+    .navDesktop {
+        display: none;
+    }
+
+    .main__header {
+        display: none
+    }
+
     .mainWeather {
         // display: none;
         position: relative;
@@ -20,6 +28,10 @@ main {
             display: flex;
             justify-content: space-between;
             align-items: align;
+
+            .infoCity__titleCityDesktop {
+                display: none;
+            }
 
             ul {
                 list-style: none;
@@ -174,6 +186,10 @@ main {
     }
 
     .mainNext2Days {
+        display: none;
+    }
+
+    .mainNext2DaysMobile {
         display: flex;
         flex-direction: column;
         align-items: center;

@@ -1,0 +1,403 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+  color: #19283F;
+}
+
+body {
+  padding: 12px 22px;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.menuIconMobile {
+  width: 30px;
+  height: 30px;
+  background: url("../assets/icons/menu_icon.svg") center no-repeat;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    padding: 0 22px;
+  }
+  body header {
+    display: none;
+  }
+  body main {
+    display: grid;
+    grid-template-columns: 246px 934px 280px;
+    justify-content: center;
+    height: 100vh;
+  }
+  body main .navDesktop {
+    display: block;
+    padding: 24px 20px;
+    border-radius: 8px;
+    background-color: #FBEFEF;
+  }
+  body main .navDesktop__title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 86px;
+  }
+  body main .navDesktop__title h1 {
+    font-size: 2rem;
+  }
+  body main .navDesktop__title .title__log {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("../assets/icons/weatherIcon.svg") center no-repeat;
+    margin-right: 12px;
+  }
+  body main .navDesktop__content ul {
+    list-style: none;
+  }
+  body main .navDesktop__content li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  body main .navDesktop__content .content__DashBoardIcon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("../assets/icons/dashboardIconsvg.svg") center no-repeat;
+    margin-right: 12px;
+  }
+  body main .navDesktop__content .content__SavedIcon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("../assets/icons/savedIcons.svg") center no-repeat;
+    margin-right: 12px;
+  }
+  body main .navDesktop__content .content__MoonIcon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("../assets/icons/moonIcon.svg") center no-repeat;
+    margin-right: 12px;
+  }
+  body main .navDesktop__content .content__darkMode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 14px;
+    /* Rounded sliders */
+  }
+  body main .navDesktop__content .content__darkMode .switch {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 16px;
+  }
+  body main .navDesktop__content .content__darkMode .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  body main .navDesktop__content .content__darkMode .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: -4px;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  body main .navDesktop__content .content__darkMode .slider:before {
+    position: absolute;
+    content: "";
+    width: 12px;
+    height: 12px;
+    left: 0px;
+    top: 1.8px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  body main .navDesktop__content .content__darkMode input:checked + .slider {
+    background-color: #2196F3;
+  }
+  body main .navDesktop__content .content__darkMode input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  body main .navDesktop__content .content__darkMode input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+  body main .navDesktop__content .content__darkMode .slider.round {
+    border-radius: 34px;
+  }
+  body main .navDesktop__content .content__darkMode .slider.round:before {
+    border-radius: 50%;
+  }
+  body main .main {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 23px 0 23px;
+  }
+  body main .main__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body main .main__header .header__containerInputSearch {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    height: 31px;
+    padding: 9px 7px;
+    border-radius: 8px;
+    background-color: #F3F3F3;
+  }
+  body main .main__header .header__containerInputSearch input {
+    width: 70%;
+    padding: 4px;
+    font-size: 1.6rem;
+    border: none;
+    background-color: #F3F3F3;
+  }
+  body main .main__header .header__containerInputSearch input:focus {
+    outline: none;
+  }
+  body main .main__header .header__containerInputSearch .containerInputSearch__searchIcon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("../assets/icons/searchIcon.svg") center no-repeat;
+  }
+  body main .main__header .header__darkMode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 14px;
+    /* Rounded sliders */
+  }
+  body main .main__header .header__darkMode .switch {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 16px;
+  }
+  body main .main__header .header__darkMode .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  body main .main__header .header__darkMode .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: -4px;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  body main .main__header .header__darkMode .slider:before {
+    position: absolute;
+    content: "";
+    width: 12px;
+    height: 12px;
+    left: 0px;
+    top: 1.8px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  body main .main__header .header__darkMode input:checked + .slider {
+    background-color: #2196F3;
+  }
+  body main .main__header .header__darkMode input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  body main .main__header .header__darkMode input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+  body main .main__header .header__darkMode .slider.round {
+    border-radius: 34px;
+  }
+  body main .main__header .header__darkMode .slider.round:before {
+    border-radius: 50%;
+  }
+  body main .main .mainWeather {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    margin-top: 30px;
+    padding: 23px;
+    border-radius: 8px;
+    background-color: #c3c3c3;
+  }
+  body main .main .mainWeather .mainWeather__infoCity .infoCity__titleCityDesktop {
+    display: block;
+    margin-bottom: 6px;
+  }
+  body main .main .mainWeather .mainWeather__infoCity .infoCity__titleCityDesktop h1 {
+    font-size: 3.2rem;
+  }
+  body main .main .mainWeather .mainWeather__infoCity li {
+    font-size: 1.6rem;
+  }
+  body main .main .mainWeather .mainWeather__Temp {
+    place-items: unset;
+    padding-top: 17px;
+    margin-left: 157px;
+  }
+  body main .main .mainWeather .mainWeather__Temp h1 {
+    font-size: 4.8rem;
+  }
+  body main .main .mainWeather .mainWeather__stats {
+    position: initial;
+    align-self: center;
+    width: 567px;
+    height: 106px;
+    box-shadow: none;
+    background-color: transparent;
+    margin-top: 24px;
+  }
+  body main .main .mainWeather .mainWeather__stats .stats__pressure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 124px;
+    height: 80px;
+    color: #fff;
+    text-align: center;
+    background-color: #19283F;
+    border-radius: 8px;
+  }
+  body main .main .mainWeather .mainWeather__stats .stats__humadity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 124px;
+    height: 80px;
+    color: #19283F;
+    text-align: center;
+    background-color: #CCE16A;
+    border-radius: 8px;
+  }
+  body main .main .mainWeather .mainWeather__stats .stats__wind {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 124px;
+    height: 80px;
+    color: #19283F;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  body main .main .weatherPerHours {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 24px;
+  }
+  body main .main .weatherPerHours__header {
+    display: block;
+  }
+  body main .main .weatherPerHours__header h2 {
+    font-size: 2.4rem;
+  }
+  body main .main .weatherPerHours__header .twoDaysMore {
+    display: none;
+  }
+  body main .main .weatherPerHours__sliderWeatherHours {
+    height: 100%;
+    padding-left: 24px;
+    background-color: #FBEFEF;
+  }
+  body main .main .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
+    height: 90%;
+    margin: auto 0;
+    margin-right: 20px;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+    background-color: #fefefe;
+  }
+  body main .mainNext2Days {
+    display: block;
+    padding: 24px 20px;
+    border-radius: 8px;
+    background-color: #FBEFEF;
+  }
+  body main .mainNext2Days h1 {
+    text-align: center;
+    font-size: 2rem;
+  }
+  body main .mainNext2Days__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 38px;
+  }
+  body main .mainNext2Days__content .content__city {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    width: 100%;
+    height: 87px;
+    padding: 15px 20px;
+    margin-bottom: 32px;
+    border-radius: 8px;
+    background-color: #c3c3c3;
+  }
+  body main .mainNext2Days__content .content__city p {
+    font-size: 1.4rem;
+  }
+  body main .mainNext2Days__content .content__city .city__dayDate {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    justify-self: end;
+  }
+  body main .mainNext2Days__content .content__city .city__info {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    align-self: center;
+  }
+  body main .mainNext2Days__content .content__city .city__info h2 {
+    font-size: 2.4rem;
+  }
+}
+body ::-webkit-scrollbar {
+  width: 5px;
+}
+body ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+body ::-webkit-scrollbar-thumb {
+  background-color: rgba(116, 122, 124, 0.8196078431);
+  border-radius: 20px;
+}
+
+/*# sourceMappingURL=desktop.css.map */

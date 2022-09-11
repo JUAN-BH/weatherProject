@@ -114,44 +114,108 @@ function renderDataCity(data) {
   location.hash = `#dataCity=${data.location.name}`;
   // mobileNav.classList.add("mobileNav_Hidden");
 }
-function renderNextDays(data) {
-  mainNext2Days.innerHTML = "";
-  data.forEach((e) => {
-    const dayCityItem = document.createElement("article");
-    // dayCityItem.setAttribute("id", data.location.name);
-    dayCityItem.classList.add("mainNext2Days__city");
-    const date = document.createElement("p");
-    date.classList.add("city__dayDate");
-    date.innerText = e.date;
+function renderNextDays(data, responsive = "mobile") {
+  if (responsive === "mobile") {
+    mainNext2DaysMobile.innerHTML = "";
+    data.forEach((e) => {
+      const dayCityItem = document.createElement("article");
+      // dayCityItem.setAttribute("id", data.location.name);
+      dayCityItem.classList.add("mainNext2DaysMobile__city");
+      const date = document.createElement("p");
+      date.classList.add("city__dayDate");
+      date.innerText = e.date;
 
-    const cityInfo = document.createElement("div");
-    cityInfo.classList.add("city__info");
-    const cityTemp = document.createElement("h2"); //°C
-    cityTemp.classList.add("info__temp");
-    cityTemp.innerText = e.day.maxtemp_c + "°C";
-    const cityCondition = document.createElement("p");
-    cityCondition.classList.add("info__cityCondition");
-    cityCondition.innerText = e.day.condition.text;
-    cityInfo.appendChild(cityTemp);
-    cityInfo.appendChild(cityCondition);
+      const cityInfo = document.createElement("div");
+      cityInfo.classList.add("city__info");
+      const cityTemp = document.createElement("h2"); //°C
+      cityTemp.classList.add("info__temp");
+      cityTemp.innerText = e.day.maxtemp_c + "°C";
+      const cityCondition = document.createElement("p");
+      cityCondition.classList.add("info__cityCondition");
+      cityCondition.innerText = e.day.condition.text;
+      cityInfo.appendChild(cityTemp);
+      cityInfo.appendChild(cityCondition);
 
-    dayCityItem.appendChild(date);
-    dayCityItem.appendChild(cityInfo);
-    mainNext2Days.appendChild(dayCityItem);
-  });
+      dayCityItem.appendChild(date);
+      dayCityItem.appendChild(cityInfo);
+      mainNext2DaysMobile.appendChild(dayCityItem);
+    });
 
-  // cityItem.addEventListener("click",  (event) => {
-  //   renderDataCity(data);
-  // });
+    // cityItem.addEventListener("click",  (event) => {
+    //   renderDataCity(data);
+    // });
+  } else if (responsive === "desktop") {
+    console.log("dataDesktoNextDays", data);
+    mainNext2DaysContent.innerHTML = "";
+    data.forEach((e) => {
+      const dayCityItem = document.createElement("div");
+      // dayCityItem.setAttribute("id", data.location.name);
+      dayCityItem.classList.add("content__city");
+      const date = document.createElement("p");
+      date.classList.add("city__dayDate");
+      date.innerText = e.date;
+
+      const cityInfo = document.createElement("div");
+      cityInfo.classList.add("city__info");
+      const cityTemp = document.createElement("h2"); //°C
+      cityTemp.classList.add("info__temp");
+      cityTemp.innerText = e.day.maxtemp_c + "°C";
+      const cityCondition = document.createElement("p");
+      cityCondition.classList.add("info__cityCondition");
+      cityCondition.innerText = e.day.condition.text;
+      cityInfo.appendChild(cityTemp);
+      cityInfo.appendChild(cityCondition);
+
+      dayCityItem.appendChild(date);
+      dayCityItem.appendChild(cityInfo);
+      mainNext2DaysContent.appendChild(dayCityItem);
+    });
+  }
+}
+
+function renderSearchCityDesktop(data) {
+  titleCityDesktop.innerText = data.location.name;
+  sunriseInfo.innerText = data.forecast.forecastday[0].astro.sunrise;
+  sunsetInfo.innerText = data.forecast.forecastday[0].astro.sunset;
+  dateInfo.innerText = data.forecast.forecastday[0].date;
+  hourInfo.innerText = data.location.localtime.split(" ")[1];
+  temperature.innerText = data.current.temp_c + "°C";
+  typeWeatherInfo.innerText = data.current.condition.text;
+  pressure.innerText = data.current.pressure_mb + "mb";
+  humadity.innerText = data.current.humidity + "%";
+  windSpeed.innerText = data.current.wind_kph + "km/h";
+
+  const byHours = data.forecast.forecastday[0].hour
+    .map((e) => {
+      return `
+        <div class="sliderWeatherHours__weatherHour">
+            <h3 class="weatherHour__hour">${e.time.split(" ")[1]}</h3>
+            <img src="${e.condition.icon}" alt="" class="weatherHour__icon">
+            <h3 class="weatherHour__temp">${e.temp_c}°C</h3>
+        </div>
+    `;
+    })
+    .join(" ");
+  weatherPerHoursSlider.innerHTML = byHours;
+  renderNextDays(data.forecast.forecastday, "desktop");
+  location.hash = `#dataCity=${data.location.name}`;
 }
 
 //*Queries
-async function searchCity(cityName) {
+async function searchCity(cityName, endpoint = "current.json") {
   modalLoading.classList.remove("hidden");
   try {
-    const { data, status } = await api(`current.json?q=${cityName}&aqi=no`);
-    renderSearchCity(data);
+    if (endpoint === "current.json") {
+      const { data, status } = await api(`current.json?q=${cityName}&aqi=no`);
+      renderSearchCity(data);
+    } else if (endpoint === "forecast.json") {
+      const { data, status } = await api(
+        `forecast.json?q=${cityName}&days=3&aqi=no`
+      );
+      renderSearchCityDesktop(data);
+    }
   } catch (e) {
+    console.error(e);
     searchedCityModal.innerText = cityName;
     modalFail.classList.remove("hidden");
     closeModalFailed.addEventListener("click", (e) => {
@@ -162,11 +226,14 @@ async function searchCity(cityName) {
 }
 
 async function searchUserCity(cityName) {
+  // modalFirstLoading.classList.remove("hidden");
   const { data, status } = await api(
     `forecast.json?q=${cityName}&days=3&aqi=no`
   );
   console.log("userCity", data);
   renderDataCity(data);
+  renderSearchCityDesktop(data);
+  // modalFirstLoading.classList.add("hidden");
 }
 
 function getUserCity() {
@@ -184,6 +251,15 @@ searchCityInput.addEventListener("keypress", (e) => {
       searchCityInput.value.charAt(0).toUpperCase() +
       searchCityInput.value.slice(1);
     searchCity(inputValue);
+  }
+});
+
+searchCityDesktop.addEventListener("keypress", (e) => {
+  if (e.keyCode === 13) {
+    const inputValue =
+      searchCityDesktop.value.charAt(0).toUpperCase() +
+      searchCityDesktop.value.slice(1);
+    searchCity(inputValue, "forecast.json");
   }
 });
 

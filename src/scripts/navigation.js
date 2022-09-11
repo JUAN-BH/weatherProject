@@ -10,7 +10,7 @@ function renderSearchMobile() {
   mainWeather.classList.add("hidden");
   weatherPerHours.classList.add("hidden");
   mainSavedCitiesMobile.classList.add("hidden");
-  mainNext2Days.classList.add("hidden");
+  mainNext2DaysMobile.classList.add("hidden");
   mainSearchMobile.classList.remove("hidden");
 
   searchCityInput.focus();
@@ -25,7 +25,7 @@ function renderSaveCitiesMobile() {
   mainWeather.classList.add("hidden");
   weatherPerHours.classList.add("hidden");
   mainSearchMobile.classList.add("hidden");
-  mainNext2Days.classList.add("hidden");
+  mainNext2DaysMobile.classList.add("hidden");
   mainSavedCitiesMobile.classList.remove("hidden");
 
   mobileNav.classList.add("mobileNav_Hidden");
@@ -38,7 +38,7 @@ function renderMainMobile() {
 
   mainSearchMobile.classList.add("hidden");
   mainSavedCitiesMobile.classList.add("hidden");
-  mainNext2Days.classList.add("hidden");
+  mainNext2DaysMobile.classList.add("hidden");
   mainWeather.classList.remove("hidden");
   weatherPerHours.classList.remove("hidden");
 
@@ -54,7 +54,7 @@ function renderNextDays() {
   weatherPerHours.classList.add("hidden");
   mainSavedCitiesMobile.classList.add("hidden");
   mainSearchMobile.classList.add("hidden");
-  mainNext2Days.classList.remove("hidden");
+  mainNext2DaysMobile.classList.remove("hidden");
 
   mobileNav.classList.add("mobileNav_Hidden");
 }
