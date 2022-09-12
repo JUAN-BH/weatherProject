@@ -102,6 +102,13 @@ $breakPoints: (sm: 640px,
     }
 }
 
+@mixin iconsSVGNavMobile() {
+    display: flex;
+    justify-content: center;
+    margin-right: 12px;
+
+}
+
 @mixin modal() {
     position: fixed;
     top: 0;
@@ -127,6 +134,83 @@ html {
 
 body {
     padding: 12px 22px;
+    transition: all .4s;
+}
+
+body.dark {
+    background-color: $nightColor;
+    color: $white;
+
+    .menuIconMobile {
+        svg {
+            path {
+                stroke: $white;
+            }
+        }
+    }
+
+    svg {
+        fill: $white;
+
+        path {
+            // stroke: $white;
+            fill: $white;
+
+        }
+    }
+
+    .navDesktop,
+    .mainNext2Days,
+    .weatherPerHours__sliderWeatherHours,
+    .header__containerInputSearch,
+    .mainWeather__stats,
+    .mobileNav,
+    .headerMobileSearch__inputSearch {
+        background-color: $nightPanel;
+    }
+
+
+    .sliderWeatherHours__weatherHour {
+        background-color: $nightCards !important;
+    }
+
+    input {
+        color: $white;
+        background-color: $nightPanel;
+    }
+
+    .main {
+        .main__header {
+            .header__containerInputSearch {
+                background-color: $nightPanel;
+
+                .searchCityDesktop {
+                    background-color: $nightPanel;
+                }
+            }
+        }
+
+        .weatherPerHours {
+            .weatherPerHours__sliderWeatherHours {
+                background-color: $nightPanel;
+
+            }
+        }
+
+    }
+
+    .modal {
+        article {
+
+            background-color: $nightPanel;
+        }
+
+        button {
+            background-color: $nightCards;
+            color: $white;
+        }
+    }
+
 }
 
 h1 {
@@ -139,9 +223,15 @@ h1 {
 }
 
 .menuIconMobile {
+    display: flex;
+    justify-content: center;
     width: 30px;
     height: 30px;
-    background: url("../assets/icons/menu_icon.svg") center no-repeat;
+
+    svg {
+        margin: auto;
+    }
+
 }
 
 // @keyframes pulse{

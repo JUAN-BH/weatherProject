@@ -12,6 +12,53 @@ html {
 
 body {
   padding: 12px 22px;
+  transition: all 0.4s;
+}
+
+body.dark {
+  background-color: #19283F;
+  color: #fff;
+}
+body.dark .menuIconMobile svg path {
+  stroke: #fff;
+}
+body.dark svg {
+  fill: #fff;
+}
+body.dark svg path {
+  fill: #fff;
+}
+body.dark .navDesktop,
+body.dark .mainNext2Days,
+body.dark .weatherPerHours__sliderWeatherHours,
+body.dark .header__containerInputSearch,
+body.dark .mainWeather__stats,
+body.dark .mobileNav,
+body.dark .headerMobileSearch__inputSearch {
+  background-color: #2E4669;
+}
+body.dark .sliderWeatherHours__weatherHour {
+  background-color: #566F95 !important;
+}
+body.dark input {
+  color: #fff;
+  background-color: #2E4669;
+}
+body.dark .main .main__header .header__containerInputSearch {
+  background-color: #2E4669;
+}
+body.dark .main .main__header .header__containerInputSearch .searchCityDesktop {
+  background-color: #2E4669;
+}
+body.dark .main .weatherPerHours .weatherPerHours__sliderWeatherHours {
+  background-color: #2E4669;
+}
+body.dark .modal article {
+  background-color: #2E4669;
+}
+body.dark .modal button {
+  background-color: #566F95;
+  color: #fff;
 }
 
 h1 {
@@ -23,9 +70,13 @@ h1 {
 }
 
 .menuIconMobile {
+  display: flex;
+  justify-content: center;
   width: 30px;
   height: 30px;
-  background: url("../assets/icons/menu_icon.svg") center no-repeat;
+}
+.menuIconMobile svg {
+  margin: auto;
 }
 
 .headerMobileMain {
@@ -115,13 +166,6 @@ h1 {
 .headerMobileSearch__inputSearch input:focus {
   outline: none;
 }
-.headerMobileSearch__inputSearch .inputSearch__searchIcon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url("../assets/icons/searchIcon.svg") center no-repeat;
-}
-
 .headerMobileSaved {
   display: flex;
 }
@@ -155,31 +199,23 @@ h1 {
   margin-bottom: 34px;
 }
 .mobileNav__closeMobileNav {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url("../assets/icons/closeMenu.svg") center no-repeat;
+  display: flex;
+  justify-content: center;
   margin-right: 12px;
 }
 .mobileNav__searchIcon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url("../assets/icons/searchIcon.svg") center no-repeat;
+  display: flex;
+  justify-content: center;
   margin-right: 12px;
 }
 .mobileNav__savedIcon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url("../assets/icons/savedIcons.svg") center no-repeat;
+  display: flex;
+  justify-content: center;
   margin-right: 12px;
 }
 .mobileNav__darkIcon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url("../assets/icons/moonIcon.svg") center no-repeat;
+  display: flex;
+  justify-content: center;
   margin-right: 12px;
 }
 .mobileNav__darkMode {
@@ -253,10 +289,14 @@ h1 {
   text-align: center;
 }
 .headerMobileNextDays__arrowBack {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url("../assets/icons/leftArrow.svg") center no-repeat;
+  display: flex;
+  justify-content: center;
+  margin-right: 12px;
+  display: flex;
+  justify-content: center;
+}
+.headerMobileNextDays__arrowBack svg {
+  margin: auto;
 }
 
 main {
@@ -371,10 +411,7 @@ main .weatherPerHours .weatherPerHours__header h2:last-child {
   align-items: center;
 }
 main .weatherPerHours .weatherPerHours__header .header__rightArrow {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url("../assets/icons/rightArrow.svg") center no-repeat;
+  margin-left: 5px;
 }
 main .weatherPerHours .weatherPerHours__sliderWeatherHours {
   display: -webkit-box;
@@ -491,7 +528,6 @@ main .mainNext2DaysMobile__city .city__info h2 {
   display: inline-block;
   width: 100px;
   height: 100px;
-  background: url("../assets/icons/weatherIcon.svg") center/contain no-repeat;
   animation: pulse 0.8s infinite;
 }
 

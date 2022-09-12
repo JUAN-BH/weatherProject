@@ -45,7 +45,7 @@
 
         .inputSearch__searchIcon {
             // margin-right: 10px;
-            @include icons("../assets/icons/searchIcon.svg", 20px, 20px);
+            // @include icons("../assets/icons/searchIcon.svg", 20px, 20px);
         }
     }
 }
@@ -88,19 +88,22 @@
     }
 
     &__closeMobileNav {
-        @include icons("../assets/icons/closeMenu.svg", 20px, 20px, $navMobile: true);
+        @include iconsSVGNavMobile();
+
     }
 
     &__searchIcon {
-        @include icons("../assets/icons/searchIcon.svg", 20px, 20px, $navMobile: true);
+        @include iconsSVGNavMobile();
+
     }
 
     &__savedIcon {
-        @include icons("../assets/icons/savedIcons.svg", 20px, 20px, $navMobile: true);
+        @include iconsSVGNavMobile();
+
     }
 
     &__darkIcon {
-        @include icons("../assets/icons/moonIcon.svg", 20px, 20px, $navMobile: true);
+        @include iconsSVGNavMobile();
     }
 
     &__darkMode {
@@ -127,6 +130,14 @@
     }
 
     &__arrowBack {
-        @include icons("../assets/icons/leftArrow.svg", 20px, 20px)
+        @include iconsSVGNavMobile();
+        display: flex;
+        justify-content: center;
+
+        svg {
+            margin: auto;
+        }
+
+        // @include icons("../assets/icons/leftArrow.svg", 20px, 20px)
     }
 }

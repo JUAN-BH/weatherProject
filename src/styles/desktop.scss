@@ -33,7 +33,7 @@ body {
                     }
 
                     .title__log {
-                        @include icons("../assets/icons/weatherIcon.svg", 40px, 40px, $navMobile: true)
+                        @include iconsSVGNavMobile();
                     }
                 }
 
@@ -51,15 +51,15 @@ body {
                     }
 
                     .content__DashBoardIcon {
-                        @include icons("../assets/icons/dashboardIconsvg.svg", 40px, 40px, $navMobile: true)
+                        @include iconsSVGNavMobile()
                     }
 
                     .content__SavedIcon {
-                        @include icons("../assets/icons/savedIcons.svg", 40px, 40px, $navMobile: true)
+                        @include iconsSVGNavMobile()
                     }
 
                     .content__MoonIcon {
-                        @include icons("../assets/icons/moonIcon.svg", 40px, 40px, $navMobile: true)
+                        @include iconsSVGNavMobile()
                     }
 
                     .content__darkMode {
@@ -105,7 +105,8 @@ body {
                         }
 
                         .containerInputSearch__searchIcon {
-                            @include icons("../assets/icons/searchIcon.svg", 20px, 20px);
+                            @include iconsSVGNavMobile();
+                            margin-right: 2px;
                         }
                     }
 

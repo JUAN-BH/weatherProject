@@ -12,6 +12,37 @@ html {
 
 body {
   padding: 12px 22px;
+  transition: all 0.4s;
+}
+
+body.dark {
+  background-color: #19283F;
+  color: #fff;
+}
+body.dark .menuIconMobile svg path {
+  stroke: #fff;
+}
+body.dark svg {
+  fill: #fff;
+}
+body.dark svg path {
+  fill: #fff;
+}
+body.dark .navDesktop,
+body.dark .mainNext2Days,
+body.dark .weatherPerHours__sliderWeatherHours,
+body.dark .header__containerInputSearch,
+body.dark .mainWeather__stats,
+body.dark .mobileNav,
+body.dark .headerMobileSearch__inputSearch {
+  background-color: #2E4669;
+}
+body.dark .sliderWeatherHours__weatherHour {
+  background-color: #566F95 !important;
+}
+body.dark input {
+  color: #fff;
+  background-color: #2E4669;
 }
 
 h1 {
@@ -23,9 +54,13 @@ h1 {
 }
 
 .menuIconMobile {
+  display: flex;
+  justify-content: center;
   width: 30px;
   height: 30px;
-  background: url("../assets/icons/menu_icon.svg") center no-repeat;
+}
+.menuIconMobile svg {
+  margin: auto;
 }
 
 @media screen and (min-width: 1024px) {
@@ -56,10 +91,8 @@ h1 {
     font-size: 2rem;
   }
   body main .navDesktop__title .title__log {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: url("../assets/icons/weatherIcon.svg") center no-repeat;
+    display: flex;
+    justify-content: center;
     margin-right: 12px;
   }
   body main .navDesktop__content ul {
@@ -73,24 +106,18 @@ h1 {
     cursor: pointer;
   }
   body main .navDesktop__content .content__DashBoardIcon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: url("../assets/icons/dashboardIconsvg.svg") center no-repeat;
+    display: flex;
+    justify-content: center;
     margin-right: 12px;
   }
   body main .navDesktop__content .content__SavedIcon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: url("../assets/icons/savedIcons.svg") center no-repeat;
+    display: flex;
+    justify-content: center;
     margin-right: 12px;
   }
   body main .navDesktop__content .content__MoonIcon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: url("../assets/icons/moonIcon.svg") center no-repeat;
+    display: flex;
+    justify-content: center;
     margin-right: 12px;
   }
   body main .navDesktop__content .content__darkMode {
@@ -180,10 +207,10 @@ h1 {
     outline: none;
   }
   body main .main__header .header__containerInputSearch .containerInputSearch__searchIcon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url("../assets/icons/searchIcon.svg") center no-repeat;
+    display: flex;
+    justify-content: center;
+    margin-right: 12px;
+    margin-right: 2px;
   }
   body main .main__header .header__darkMode {
     display: flex;

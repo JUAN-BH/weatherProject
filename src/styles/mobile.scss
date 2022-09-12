@@ -108,7 +108,7 @@ main {
             }
 
             .header__rightArrow {
-                @include icons("../assets/icons/rightArrow.svg", 20px, 20px)
+                margin-left: 5px;
             }
 
         }
@@ -243,7 +243,7 @@ main {
         display: inline-block;
         width: 100px;
         height: 100px;
-        background: url("../assets/icons/weatherIcon.svg") center/contain no-repeat;
+        // background: url("../assets/icons/weatherIcon.svg") center/contain no-repeat;
         animation: pulse 0.8s infinite;
     }
 }

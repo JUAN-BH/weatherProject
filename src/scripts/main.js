@@ -1,8 +1,12 @@
 //*Utils
 const api = axios.create({
-  baseURL: "http://api.weatherapi.com/v1/",
-  params: {
-    key: "2f008c5109bb4b9898b123449222908",
+  baseURL: "https://weatherapi-com.p.rapidapi.com/",
+  // params: {
+  //   key: "57be9319ebmsh663cc9b4c17c821p1f1099jsneea5309eaf01",
+  // },
+  headers: {
+    "X-RapidAPI-Key": "57be9319ebmsh663cc9b4c17c821p1f1099jsneea5309eaf01",
+    "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
   },
 });
 
@@ -80,13 +84,14 @@ function renderSearchCity(data) {
 
   cityItem.addEventListener("click", async (event) => {
     const { data, status } = await api(
-      `forecast.json?q=${cityNameFound}&days=3&aqi=no`
+      `forecast.json?q=${cityNameFound}&days=3`
     );
     console.log("forescast", data);
     renderDataCity(data);
   });
 }
 function renderDataCity(data) {
+  titleCityDesktop.innerText = data.location.name;
   cityNameHeader.innerText = data.location.name;
   sunriseInfo.innerText = data.forecast.forecastday[0].astro.sunrise;
   sunsetInfo.innerText = data.forecast.forecastday[0].astro.sunset;
@@ -174,6 +179,7 @@ function renderNextDays(data, responsive = "mobile") {
 }
 
 function renderSearchCityDesktop(data) {
+  cityNameHeader.innerText = data.location.name;
   titleCityDesktop.innerText = data.location.name;
   sunriseInfo.innerText = data.forecast.forecastday[0].astro.sunrise;
   sunsetInfo.innerText = data.forecast.forecastday[0].astro.sunset;
@@ -206,12 +212,10 @@ async function searchCity(cityName, endpoint = "current.json") {
   modalLoading.classList.remove("hidden");
   try {
     if (endpoint === "current.json") {
-      const { data, status } = await api(`current.json?q=${cityName}&aqi=no`);
+      const { data, status } = await api(`current.json?q=${cityName}`);
       renderSearchCity(data);
     } else if (endpoint === "forecast.json") {
-      const { data, status } = await api(
-        `forecast.json?q=${cityName}&days=3&aqi=no`
-      );
+      const { data, status } = await api(`forecast.json?q=${cityName}&days=3`);
       renderSearchCityDesktop(data);
     }
   } catch (e) {
@@ -227,9 +231,7 @@ async function searchCity(cityName, endpoint = "current.json") {
 
 async function searchUserCity(cityName) {
   // modalFirstLoading.classList.remove("hidden");
-  const { data, status } = await api(
-    `forecast.json?q=${cityName}&days=3&aqi=no`
-  );
+  const { data, status } = await api(`forecast.json?q=${cityName}&days=3`);
   console.log("userCity", data);
   renderDataCity(data);
   renderSearchCityDesktop(data);
@@ -262,5 +264,34 @@ searchCityDesktop.addEventListener("keypress", (e) => {
     searchCity(inputValue, "forecast.json");
   }
 });
+
+for (let i = 0; i < darkModeBtn.length; i++) {
+  darkModeBtn[i].addEventListener("change", () => {
+    document.body.classList.toggle("dark");
+    if (darkModeBtn[i].checked) {
+      darkModeBtn[1].checked = true;
+    } else {
+      darkModeBtn[1].checked = false;
+    }
+  });
+  darkModeBtn[1].addEventListener("change", () => {
+    document.body.classList.toggle("dark");
+    if (darkModeBtn[1].checked) {
+      darkModeBtn[0].checked = true;
+    } else {
+      darkModeBtn[0].checked = false;
+    }
+  });
+}
+
+console.log(darkModeBtn.length);
+
+// darkModeBtn.forEach((e) => {
+//   e.addEventListener("change", () => {
+//     document.body.classList.toggle("dark");
+//   });
+// });
+
+// console.log(darkModeBtn);
 
 getUserCity();
