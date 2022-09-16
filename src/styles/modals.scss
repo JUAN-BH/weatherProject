@@ -1,0 +1,79 @@
+.modalLoading {
+    @include modal();
+
+    &__logo {
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        // background: url("../assets/icons/weatherIcon.svg") center/contain no-repeat;
+        animation: pulse 0.8s infinite;
+    }
+}
+
+.modalFirstLoading {
+    @include modal();
+    background-color: $white;
+
+    &__logo {
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: url("../assets/icons/weatherIcon.svg") center/contain no-repeat;
+        animation: pulse 0.8s infinite;
+    }
+}
+
+.modalFail {
+    @include modal();
+
+    article {
+        position: absolute;
+        left: calc(50% - 124px);
+        top: calc(50% - 127px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 248px;
+        height: 254px;
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #f3f3f3;
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            // transition: all 0.3s;
+
+            background: #f3f3f3;
+            transform: translateY(-0.1em);
+            transition: transform 0.1s ease;
+
+        }
+
+        button:hover {
+            transform: translateY(-0.18em);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+
+    }
+}

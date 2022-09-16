@@ -10,9 +10,10 @@ const mainWeather = $(".mainWeather");
 const weatherPerHours = $(".weatherPerHours");
 const weatherPerHoursSlider = $(".weatherPerHours__sliderWeatherHours");
 const mainSearchMobile = $(".mainSearchMobile");
-const mainSavedCitiesMobile = $(".mainSavedCitiesMobile");
-const mainNext2DaysMobile = $(".mainNext2DaysMobile");
+const savedCities = $(".savedCities");
+// const mainNext2DaysMobile = $(".mainNext2DaysMobile");
 //*Sections Desktop
+const mainInfo = $(".main");
 const mainHeaderDesktop = $(".main__header");
 const mainNext2Days = $(".mainNext2Days");
 const mainNext2DaysContent = $(".mainNext2Days__content");
@@ -40,6 +41,8 @@ const twoDaysMore = $(".twoDaysMore");
 //*Elements desktop
 const searchCityDesktop = $(".searchCityDesktop");
 const titleCityDesktop = $(".titleCityDesktop__title");
+const dashBoardBtn = $(".navDesktop__dashBoardBtn");
+const savedCitiesBtn = $(".navDesktop__saveCityBtn");
 
 //*Modals
 const modalLoading = $(".modalLoading");

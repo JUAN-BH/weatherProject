@@ -120,62 +120,62 @@ function renderDataCity(data) {
   // mobileNav.classList.add("mobileNav_Hidden");
 }
 function renderNextDays(data, responsive = "mobile") {
-  if (responsive === "mobile") {
-    mainNext2DaysMobile.innerHTML = "";
-    data.forEach((e) => {
-      const dayCityItem = document.createElement("article");
-      // dayCityItem.setAttribute("id", data.location.name);
-      dayCityItem.classList.add("mainNext2DaysMobile__city");
-      const date = document.createElement("p");
-      date.classList.add("city__dayDate");
-      date.innerText = e.date;
+  // if (responsive === "mobile") {
+  //   mainNext2DaysMobile.innerHTML = "";
+  //   data.forEach((e) => {
+  //     const dayCityItem = document.createElement("article");
+  //     // dayCityItem.setAttribute("id", data.location.name);
+  //     dayCityItem.classList.add("mainNext2DaysMobile__city");
+  //     const date = document.createElement("p");
+  //     date.classList.add("city__dayDate");
+  //     date.innerText = e.date;
 
-      const cityInfo = document.createElement("div");
-      cityInfo.classList.add("city__info");
-      const cityTemp = document.createElement("h2"); //°C
-      cityTemp.classList.add("info__temp");
-      cityTemp.innerText = e.day.maxtemp_c + "°C";
-      const cityCondition = document.createElement("p");
-      cityCondition.classList.add("info__cityCondition");
-      cityCondition.innerText = e.day.condition.text;
-      cityInfo.appendChild(cityTemp);
-      cityInfo.appendChild(cityCondition);
+  //     const cityInfo = document.createElement("div");
+  //     cityInfo.classList.add("city__info");
+  //     const cityTemp = document.createElement("h2"); //°C
+  //     cityTemp.classList.add("info__temp");
+  //     cityTemp.innerText = e.day.maxtemp_c + "°C";
+  //     const cityCondition = document.createElement("p");
+  //     cityCondition.classList.add("info__cityCondition");
+  //     cityCondition.innerText = e.day.condition.text;
+  //     cityInfo.appendChild(cityTemp);
+  //     cityInfo.appendChild(cityCondition);
 
-      dayCityItem.appendChild(date);
-      dayCityItem.appendChild(cityInfo);
-      mainNext2DaysMobile.appendChild(dayCityItem);
-    });
+  //     dayCityItem.appendChild(date);
+  //     dayCityItem.appendChild(cityInfo);
+  //     mainNext2DaysMobile.appendChild(dayCityItem);
+  //   });
 
-    // cityItem.addEventListener("click",  (event) => {
-    //   renderDataCity(data);
-    // });
-  } else if (responsive === "desktop") {
-    console.log("dataDesktoNextDays", data);
-    mainNext2DaysContent.innerHTML = "";
-    data.forEach((e) => {
-      const dayCityItem = document.createElement("div");
-      // dayCityItem.setAttribute("id", data.location.name);
-      dayCityItem.classList.add("content__city");
-      const date = document.createElement("p");
-      date.classList.add("city__dayDate");
-      date.innerText = e.date;
+  //   // cityItem.addEventListener("click",  (event) => {
+  //   //   renderDataCity(data);
+  //   // });
+  // } else if (responsive === "desktop") {
+  console.log("dataDesktoNextDays", data);
+  mainNext2DaysContent.innerHTML = "";
+  data.forEach((e) => {
+    const dayCityItem = document.createElement("div");
+    // dayCityItem.setAttribute("id", data.location.name);
+    dayCityItem.classList.add("content__city");
+    const date = document.createElement("p");
+    date.classList.add("city__dayDate");
+    date.innerText = e.date;
 
-      const cityInfo = document.createElement("div");
-      cityInfo.classList.add("city__info");
-      const cityTemp = document.createElement("h2"); //°C
-      cityTemp.classList.add("info__temp");
-      cityTemp.innerText = e.day.maxtemp_c + "°C";
-      const cityCondition = document.createElement("p");
-      cityCondition.classList.add("info__cityCondition");
-      cityCondition.innerText = e.day.condition.text;
-      cityInfo.appendChild(cityTemp);
-      cityInfo.appendChild(cityCondition);
+    const cityInfo = document.createElement("div");
+    cityInfo.classList.add("city__info");
+    const cityTemp = document.createElement("h2"); //°C
+    cityTemp.classList.add("info__temp");
+    cityTemp.innerText = e.day.maxtemp_c + "°C";
+    const cityCondition = document.createElement("p");
+    cityCondition.classList.add("info__cityCondition");
+    cityCondition.innerText = e.day.condition.text;
+    cityInfo.appendChild(cityTemp);
+    cityInfo.appendChild(cityCondition);
 
-      dayCityItem.appendChild(date);
-      dayCityItem.appendChild(cityInfo);
-      mainNext2DaysContent.appendChild(dayCityItem);
-    });
-  }
+    dayCityItem.appendChild(date);
+    dayCityItem.appendChild(cityInfo);
+    mainNext2DaysContent.appendChild(dayCityItem);
+  });
+  // }
 }
 
 function renderSearchCityDesktop(data) {
@@ -283,15 +283,5 @@ for (let i = 0; i < darkModeBtn.length; i++) {
     }
   });
 }
-
-console.log(darkModeBtn.length);
-
-// darkModeBtn.forEach((e) => {
-//   e.addEventListener("change", () => {
-//     document.body.classList.toggle("dark");
-//   });
-// });
-
-// console.log(darkModeBtn);
 
 getUserCity();

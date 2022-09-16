@@ -211,7 +211,12 @@ body.dark {
         }
     }
 
+    ::-webkit-scrollbar-thumb {
+        background-color: $white;
+    }
 }
+
+
 
 h1 {
     font-size: 2.4rem;

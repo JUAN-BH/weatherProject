@@ -1,6 +1,14 @@
 window.addEventListener("DOMContentLoaded", navigation, false);
 window.addEventListener("hashchange", navigation, false);
 
+window.addEventListener("resize", () => {
+  if (window.screen.width > 1024) {
+    mainNext2DaysContent.style.display = "flex";
+  } else {
+    mainNext2DaysContent.style.display = "none";
+  }
+});
+
 function renderSearchMobile() {
   mainHeaderMobile.classList.add("hidden");
   savedCitiesHeaderMobile.classList.add("hidden");
@@ -9,8 +17,14 @@ function renderSearchMobile() {
 
   mainWeather.classList.add("hidden");
   weatherPerHours.classList.add("hidden");
-  mainSavedCitiesMobile.classList.add("hidden");
-  mainNext2DaysMobile.classList.add("hidden");
+  savedCities.classList.add("hidden");
+
+  if (window.screen.width > 1024) {
+    mainNext2DaysContent.style.display = "flex";
+  } else {
+    mainNext2DaysContent.style.display = "none";
+  }
+
   mainSearchMobile.classList.remove("hidden");
 
   searchCityInput.focus();
@@ -25,8 +39,14 @@ function renderSaveCitiesMobile() {
   mainWeather.classList.add("hidden");
   weatherPerHours.classList.add("hidden");
   mainSearchMobile.classList.add("hidden");
-  mainNext2DaysMobile.classList.add("hidden");
-  mainSavedCitiesMobile.classList.remove("hidden");
+
+  if (window.screen.width > 1024) {
+    mainNext2DaysContent.style.display = "flex";
+  } else {
+    mainNext2DaysContent.style.display = "none";
+  }
+
+  savedCities.classList.remove("hidden");
 
   mobileNav.classList.add("mobileNav_Hidden");
 }
@@ -37,8 +57,14 @@ function renderMainMobile() {
   mainHeaderMobile.classList.remove("hidden");
 
   mainSearchMobile.classList.add("hidden");
-  mainSavedCitiesMobile.classList.add("hidden");
-  mainNext2DaysMobile.classList.add("hidden");
+  savedCities.classList.add("hidden");
+
+  if (window.screen.width > 1024) {
+    mainNext2DaysContent.style.display = "flex";
+  } else {
+    mainNext2DaysContent.style.display = "none";
+  }
+
   mainWeather.classList.remove("hidden");
   weatherPerHours.classList.remove("hidden");
 
@@ -52,11 +78,36 @@ function renderNextDays() {
 
   mainWeather.classList.add("hidden");
   weatherPerHours.classList.add("hidden");
-  mainSavedCitiesMobile.classList.add("hidden");
+  savedCities.classList.add("hidden");
   mainSearchMobile.classList.add("hidden");
-  mainNext2DaysMobile.classList.remove("hidden");
+
+  if (window.screen.width > 1024) {
+    mainNext2DaysContent.style.display = "flex";
+  } else {
+    mainNext2DaysContent.style.display = "flex";
+  }
 
   mobileNav.classList.add("mobileNav_Hidden");
+}
+function renderSavedCitiesDesktop() {
+  mainInfo.classList.add("hidden");
+  console.log(mainNext2Days);
+  mainNext2Days.style.display = "none";
+
+  savedCities.classList.remove("hidden");
+
+  dashBoardBtn.classList.remove("btnActiveNavDesktop");
+  savedCitiesBtn.classList.add("btnActiveNavDesktop");
+}
+function renderDashBoard() {
+  mainInfo.classList.remove("hidden");
+
+  mainNext2Days.style.display = "flex";
+
+  savedCities.classList.add("hidden");
+
+  savedCitiesBtn.classList.remove("btnActiveNavDesktop");
+  dashBoardBtn.classList.add("btnActiveNavDesktop");
 }
 
 function navigation() {
@@ -79,3 +130,6 @@ closeNavMobile.addEventListener("click", () => {
 mobileMainBtn.addEventListener("click", renderMainMobile);
 mobileSearchBtn.addEventListener("click", renderSearchMobile);
 mobileSavedCitiesBtn.addEventListener("click", renderSaveCitiesMobile);
+
+dashBoardBtn.addEventListener("click", renderDashBoard);
+savedCitiesBtn.addEventListener("click", renderSavedCitiesDesktop);
