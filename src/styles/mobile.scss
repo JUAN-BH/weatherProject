@@ -23,6 +23,14 @@ main {
         padding: 18px;
         border-radius: 8px;
         background-color: #c3c3c3;
+        background: url("../assets/img/clear__light.png") center/cover no-repeat;
+
+        &__saveCity {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            @include switchBtn(16px, 16px, 1.8px, 5px, 2px, 40px, 20px);
+        }
 
         .mainWeather__infoCity {
             display: flex;
@@ -157,12 +165,22 @@ main {
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            height: 87px;
+            height: 100px;
             padding: 25px;
-            margin-bottom: 22px;
+            margin-bottom: 30px;
             border-radius: 8px;
             background-color: #c3c3c3;
+
+            .cityName,
+            .cityTemp {
+                font-size: 2.2rem;
+            }
+
+            .cityTemp {
+                color: $white;
+            }
         }
+
     }
 
     .savedCities {
@@ -182,7 +200,12 @@ main {
             margin-bottom: 32px;
             border-radius: 8px;
             background-color: #c3c3c3;
+
+            h2 {
+                font-size: 2.2rem;
+            }
         }
+
     }
 
     .mainNext2Days {
@@ -196,6 +219,7 @@ main {
             flex-direction: column;
             align-items: center;
             width: 100%;
+            // background-color: transparent;
 
             .content__city {
                 display: grid;
@@ -206,7 +230,8 @@ main {
                 padding: 15px 20px;
                 margin-bottom: 32px;
                 border-radius: 8px;
-                background-color: #c3c3c3;
+                box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+                background-color: $colorPanel;
 
                 p {
                     font-size: 1.4rem;

@@ -22,6 +22,9 @@ body.dark {
 body.dark .menuIconMobile svg path {
   stroke: #fff;
 }
+body.dark .weatherLogo path {
+  stroke: #fff;
+}
 body.dark svg {
   fill: #fff;
 }
@@ -29,7 +32,6 @@ body.dark svg path {
   fill: #fff;
 }
 body.dark .navDesktop,
-body.dark .mainNext2Days,
 body.dark .weatherPerHours__sliderWeatherHours,
 body.dark .header__containerInputSearch,
 body.dark .mainWeather__stats,
@@ -37,12 +39,12 @@ body.dark .mobileNav,
 body.dark .headerMobileSearch__inputSearch {
   background-color: #2E4669;
 }
-body.dark .sliderWeatherHours__weatherHour {
-  background-color: #566F95 !important;
-}
 body.dark input {
   color: #fff;
   background-color: #2E4669;
+}
+body.dark main .navDesktop__content .btnActiveNavDesktop {
+  border-bottom: 2px solid #fff;
 }
 body.dark .main .main__header .header__containerInputSearch {
   background-color: #2E4669;
@@ -52,6 +54,25 @@ body.dark .main .main__header .header__containerInputSearch .searchCityDesktop {
 }
 body.dark .main .weatherPerHours .weatherPerHours__sliderWeatherHours {
   background-color: #2E4669;
+}
+body.dark .main .weatherPerHours .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
+  background-color: #566F95;
+}
+body.dark .mainSearchMobile__city .cityName,
+body.dark .mainSearchMobile__city .cityTemp {
+  color: #19283F;
+}
+body.dark .mainSearchMobile__city .cityTemp {
+  color: #fff;
+}
+body.dark .mainNext2Days {
+  background-color: #2E4669;
+}
+body.dark .mainNext2Days__content .content__city {
+  background-color: #566F95;
+}
+body.dark .savedCities h2 {
+  color: #19283F;
 }
 body.dark .modal article {
   background-color: #2E4669;
@@ -83,66 +104,16 @@ h1 {
 }
 
 .headerMobileMain {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .headerMobileMain__cityName {
-  margin: 0 auto;
+  position: absolute;
+  left: calc(50% - 100px);
+  width: 200px;
   font-size: 2.8rem;
-}
-.headerMobileMain__saveCity {
-  /* Rounded sliders */
-}
-.headerMobileMain__saveCity .switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-}
-.headerMobileMain__saveCity .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.headerMobileMain__saveCity .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 5px;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-.headerMobileMain__saveCity .slider:before {
-  position: absolute;
-  content: "";
-  width: 16px;
-  height: 16px;
-  left: 2px;
-  top: 1.8px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-.headerMobileMain__saveCity input:checked + .slider {
-  background-color: #2196F3;
-}
-.headerMobileMain__saveCity input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-.headerMobileMain__saveCity input:checked + .slider:before {
-  -webkit-transform: translateX(16px);
-  -ms-transform: translateX(16px);
-  transform: translateX(16px);
-}
-.headerMobileMain__saveCity .slider.round {
-  border-radius: 34px;
-}
-.headerMobileMain__saveCity .slider.round:before {
-  border-radius: 50%;
+  text-align: center;
 }
 
 .headerMobileSearch {
@@ -169,11 +140,17 @@ h1 {
 .headerMobileSearch__inputSearch input:focus {
   outline: none;
 }
+
 .headerMobileSaved {
   display: flex;
+  position: relative;
 }
 .headerMobileSaved__title {
+  position: absolute;
+  left: calc(50% - 72px);
+  width: 144px;
   margin: 0 auto;
+  text-align: center;
   text-align: center;
 }
 
@@ -408,6 +385,63 @@ main .mainWeather {
   padding: 18px;
   border-radius: 8px;
   background-color: #c3c3c3;
+  background: url("../assets/img/clear__light.png") center/cover no-repeat;
+}
+main .mainWeather__saveCity {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  /* Rounded sliders */
+}
+main .mainWeather__saveCity .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+main .mainWeather__saveCity .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+main .mainWeather__saveCity .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 5px;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+main .mainWeather__saveCity .slider:before {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  left: 2px;
+  top: 1.8px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+main .mainWeather__saveCity input:checked + .slider {
+  background-color: #2196F3;
+}
+main .mainWeather__saveCity input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+main .mainWeather__saveCity input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+main .mainWeather__saveCity .slider.round {
+  border-radius: 34px;
+}
+main .mainWeather__saveCity .slider.round:before {
+  border-radius: 50%;
 }
 main .mainWeather .mainWeather__infoCity {
   display: flex;
@@ -542,11 +576,18 @@ main .mainSearchMobile__city {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 87px;
+  height: 100px;
   padding: 25px;
-  margin-bottom: 22px;
+  margin-bottom: 30px;
   border-radius: 8px;
   background-color: #c3c3c3;
+}
+main .mainSearchMobile__city .cityName,
+main .mainSearchMobile__city .cityTemp {
+  font-size: 2.2rem;
+}
+main .mainSearchMobile__city .cityTemp {
+  color: #fff;
 }
 main .savedCities {
   display: flex;
@@ -564,6 +605,9 @@ main .savedCities__city {
   margin-bottom: 32px;
   border-radius: 8px;
   background-color: #c3c3c3;
+}
+main .savedCities__city h2 {
+  font-size: 2.2rem;
 }
 main .mainNext2Days__title {
   display: none;
@@ -583,7 +627,8 @@ main .mainNext2Days__content .content__city {
   padding: 15px 20px;
   margin-bottom: 32px;
   border-radius: 8px;
-  background-color: #c3c3c3;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+  background-color: #F3F3F3;
 }
 main .mainNext2Days__content .content__city p {
   font-size: 1.4rem;

@@ -11,6 +11,8 @@ const weatherPerHours = $(".weatherPerHours");
 const weatherPerHoursSlider = $(".weatherPerHours__sliderWeatherHours");
 const mainSearchMobile = $(".mainSearchMobile");
 const savedCities = $(".savedCities");
+// console.log("from nodes", savedCities);
+
 // const mainNext2DaysMobile = $(".mainNext2DaysMobile");
 //*Sections Desktop
 const mainInfo = $(".main");

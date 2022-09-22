@@ -3,6 +3,7 @@ window.addEventListener("hashchange", navigation, false);
 
 window.addEventListener("resize", () => {
   if (window.screen.width > 1024) {
+    renderDashBoard();
     mainNext2DaysContent.style.display = "flex";
   } else {
     mainNext2DaysContent.style.display = "none";
@@ -91,7 +92,7 @@ function renderNextDays() {
 }
 function renderSavedCitiesDesktop() {
   mainInfo.classList.add("hidden");
-  console.log(mainNext2Days);
+  // console.log(mainNext2Days);
   mainNext2Days.style.display = "none";
 
   savedCities.classList.remove("hidden");
@@ -101,6 +102,8 @@ function renderSavedCitiesDesktop() {
 }
 function renderDashBoard() {
   mainInfo.classList.remove("hidden");
+  mainWeather.classList.remove("hidden");
+  weatherPerHours.classList.remove("hidden");
 
   mainNext2Days.style.display = "flex";
 
@@ -108,11 +111,16 @@ function renderDashBoard() {
 
   savedCitiesBtn.classList.remove("btnActiveNavDesktop");
   dashBoardBtn.classList.add("btnActiveNavDesktop");
+  console.log("ENTRO ENTRO");
 }
 
 function navigation() {
   if (location.hash.startsWith("#dataCity=")) {
     renderMainMobile();
+    renderDashBoard();
+  } else {
+    renderMainMobile();
+    renderDashBoard();
   }
 }
 

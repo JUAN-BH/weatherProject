@@ -149,6 +149,12 @@ body.dark {
         }
     }
 
+    .weatherLogo {
+        path {
+            stroke: $white;
+        }
+    }
+
     svg {
         fill: $white;
 
@@ -160,7 +166,6 @@ body.dark {
     }
 
     .navDesktop,
-    .mainNext2Days,
     .weatherPerHours__sliderWeatherHours,
     .header__containerInputSearch,
     .mainWeather__stats,
@@ -169,17 +174,23 @@ body.dark {
         background-color: $nightPanel;
     }
 
-
-    .sliderWeatherHours__weatherHour {
-        background-color: $nightCards !important;
-    }
-
     input {
         color: $white;
         background-color: $nightPanel;
     }
 
+    main {
+        .navDesktop {
+            &__content {
+                .btnActiveNavDesktop {
+                    border-bottom: 2px solid $white;
+                }
+            }
+        }
+    }
+
     .main {
+
         .main__header {
             .header__containerInputSearch {
                 background-color: $nightPanel;
@@ -194,7 +205,44 @@ body.dark {
             .weatherPerHours__sliderWeatherHours {
                 background-color: $nightPanel;
 
+                .sliderWeatherHours__weatherHour {
+                    background-color: $nightCards;
+                }
             }
+        }
+    }
+
+    .mainSearchMobile {
+
+        &__city {
+
+            .cityName,
+            .cityTemp {
+                color: $colorText;
+            }
+
+            .cityTemp {
+                color: $white;
+            }
+        }
+
+    }
+
+    .mainNext2Days {
+        background-color: $nightPanel;
+
+        &__content {
+            .content__city {
+                background-color: $nightCards;
+            }
+        }
+    }
+
+    .savedCities {
+
+        h2 {
+            // font-size: 2.8rem;
+            color: $colorText;
         }
 
     }
@@ -216,11 +264,8 @@ body.dark {
     }
 }
 
-
-
 h1 {
     font-size: 2.4rem;
-
 }
 
 .hidden {
@@ -238,7 +283,3 @@ h1 {
     }
 
 }
-
-// @keyframes pulse{
-
-// }

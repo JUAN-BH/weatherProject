@@ -25,12 +25,12 @@
           
       </div>
       <h1 class="headerMobileMain__cityName">Cali</h1>
-      <div class="headerMobileMain__saveCity">
+      <!-- <div class="headerMobileMain__saveCity">
         <label class="switch">
           <input type="checkbox" class="saveCityBtn" />
           <span class="slider round"></span>
         </label>
-      </div>
+      </div> -->
     </section>
     <section class="headerMobileSearch hidden">
       <div class="headerMobileSearch__menuIcon menuIconMobile">
@@ -65,7 +65,7 @@
           </svg>
           
       </div>
-      <h1 class="headerMobileNextDays__title">Next to days</h1>
+      <h1 class="headerMobileNextDays__title">Next two days</h1>
     </section>
     <nav class="mobileNav mobileNav_Hidden">
       <ul>
@@ -116,7 +116,7 @@
     <section class="navDesktop">
       <div class="navDesktop__title">
         <span class="title__log">
-          <svg width="41" height="36" viewBox="0 0 41 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="41" height="36" viewBox="0 0 41 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="weatherLogo">
             <path d="M37.172 24.6204C38.121 21.9508 38.415 19.0923 38.0293 16.2855C37.6436 13.4786 36.5896 10.8054 34.9558 8.49066C33.322 6.17594 31.1562 4.2874 28.6406 2.98388C26.1251 1.68037 23.3332 1 20.5 1C17.6668 1 14.8749 1.68037 12.3594 2.98388C9.84379 4.2874 7.67802 6.17594 6.04422 8.49066C4.41042 10.8054 3.35636 13.4786 2.97069 16.2855C2.58503 19.0923 2.87904 21.9508 3.828 24.6204M1 24.6194H40H1ZM5.291 29.8014H20.997H5.291ZM25.39 29.8014H28.372H25.39ZM32.764 29.8014H35.746H32.764ZM11.106 34.9824H30.863H11.106Z" fill="#19283F"/>
             <path d="M37.172 24.6204C38.121 21.9508 38.415 19.0923 38.0293 16.2855C37.6436 13.4786 36.5896 10.8054 34.9558 8.49066C33.322 6.17594 31.1562 4.2874 28.6406 2.98388C26.1251 1.68037 23.3332 1 20.5 1C17.6668 1 14.8749 1.68037 12.3594 2.98388C9.84379 4.2874 7.67802 6.17594 6.04422 8.49066C4.41042 10.8054 3.35636 13.4786 2.97069 16.2855C2.58503 19.0923 2.87904 21.9508 3.828 24.6204M1 24.6194H40M5.291 29.8014H20.997M25.39 29.8014H28.372M32.764 29.8014H35.746M11.106 34.9824H30.863" stroke="#19283F" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -167,15 +167,22 @@
           </span>
           <input type="text" placeholder="Search city" class="searchCityDesktop" />
         </label>
-        <div class="header__darkMode">
+        <!-- <div class="header__saveCity">
           <label class="switch">
-            <input type="checkbox" class="" />
+            <input type="checkbox" class="saveCityBtn" />
+            <span class="slider round"></span>
+          </label>
+        </div> -->
+
+      </article>
+
+      <section class="mainWeather">
+        <div class="mainWeather__saveCity">
+          <label class="switch">
+            <input type="checkbox" class="saveCityBtn" />
             <span class="slider round"></span>
           </label>
         </div>
-
-      </article>
-      <section class="mainWeather">
         <article class="mainWeather__infoCity">
           <ul>
             <li class="infoCity__titleCityDesktop">
@@ -208,6 +215,7 @@
           </div>
         </article>
       </section>
+
       <section class="weatherPerHours">
         <article class="weatherPerHours__header">
           <h2>Today</h2>
@@ -231,12 +239,10 @@
     </section>
 
     <section class="savedCities">
-      <article class="savedCities__city">
+      <!-- <article class="savedCities__city">
         <h2 class="cityName">Hola</h2>
-      </article>
-      <article class="savedCities__city">
-        <h2 class="cityName">Hola</h2>
-      </article>
+      </article> -->
+      
     </section>
 
     <section class="mainNext2Days">
@@ -268,7 +274,7 @@
 
   <section class="modalLoading hidden ">
     <span class="modalLoading__logo animate__animated">
-      <svg width="100" height="100" viewBox="0 0 41 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="100" height="100" viewBox="0 0 41 36" fill="none" xmlns="http://www.w3.org/2000/svg"class="weatherLogo" >
         <path d="M37.172 24.6204C38.121 21.9508 38.415 19.0923 38.0293 16.2855C37.6436 13.4786 36.5896 10.8054 34.9558 8.49066C33.322 6.17594 31.1562 4.2874 28.6406 2.98388C26.1251 1.68037 23.3332 1 20.5 1C17.6668 1 14.8749 1.68037 12.3594 2.98388C9.84379 4.2874 7.67802 6.17594 6.04422 8.49066C4.41042 10.8054 3.35636 13.4786 2.97069 16.2855C2.58503 19.0923 2.87904 21.9508 3.828 24.6204M1 24.6194H40H1ZM5.291 29.8014H20.997H5.291ZM25.39 29.8014H28.372H25.39ZM32.764 29.8014H35.746H32.764ZM11.106 34.9824H30.863H11.106Z" fill="#19283F"/>
         <path d="M37.172 24.6204C38.121 21.9508 38.415 19.0923 38.0293 16.2855C37.6436 13.4786 36.5896 10.8054 34.9558 8.49066C33.322 6.17594 31.1562 4.2874 28.6406 2.98388C26.1251 1.68037 23.3332 1 20.5 1C17.6668 1 14.8749 1.68037 12.3594 2.98388C9.84379 4.2874 7.67802 6.17594 6.04422 8.49066C4.41042 10.8054 3.35636 13.4786 2.97069 16.2855C2.58503 19.0923 2.87904 21.9508 3.828 24.6204M1 24.6194H40M5.291 29.8014H20.997M25.39 29.8014H28.372M32.764 29.8014H35.746M11.106 34.9824H30.863" stroke="#19283F" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -287,9 +293,7 @@
     <span class="modalFirstLoading__logo animate__animated"></span>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" charset="utf-8"></script>
-  <script async
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNQ1sqLuNyKOq03y-2Oj6lbIxOQtYnEwk&callback=initMap"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
   <script src="./src/scripts/nodes.js"></script>
   <script src="./src/scripts/navigation.js"></script>
   <script src="./src/scripts/cities.js"></script>

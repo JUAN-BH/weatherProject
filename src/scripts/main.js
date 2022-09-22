@@ -9,6 +9,13 @@ const api = axios.create({
     "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
   },
 });
+//pk.b438038ca0eeaeead4ee265d6a2c006c
+const apiLocation = axios.create({
+  baseURL: "https://us1.locationiq.com/v1/",
+  params: {
+    key: "pk.b438038ca0eeaeead4ee265d6a2c006c",
+  },
+});
 
 function showPosition(position) {
   lat = position.coords.latitude;
@@ -19,42 +26,105 @@ function showPosition(position) {
 function showError(error) {
   switch (error.code) {
     case error.PERMISSION_DENIED:
-      x.innerHTML = "User denied the request for Geolocation.";
+      alert("User denied the request for Geolocation.");
       break;
     case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable.";
+      alert("Location information is unavailable.");
       break;
     case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out.";
+      alert("The request to get user location timed out.");
       break;
     case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred.";
+      alert("An unknown error occurred.");
       break;
   }
 }
 
-function displayLocation(latitude, longitude) {
-  const geocoder = new google.maps.Geocoder();
-  const latlng = new google.maps.LatLng(latitude, longitude);
+async function displayLocation(latitude, longitude) {
+  modalFirstLoading.classList.remove("hidden");
+  const { data, status } = await apiLocation(
+    `reverse?format=json&lat=${latitude}&lon=${longitude}`
+  );
+  const city = data.address.city;
+  searchUserCity(city);
+  modalFirstLoading.classList.add("hidden");
 
-  geocoder.geocode({ latLng: latlng }, function (results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      if (results[0]) {
-        const location = results[0].formatted_address.split(",");
-        const city = location[1];
-        searchUserCity(city);
-      } else {
-        alert("location not found");
-      }
-    } else {
-      alert("Geocoder failed due to", status);
-    }
-  });
+  console.log(data);
+}
+
+function saveCities(city) {
+  let savedCities;
+  savedCities = JSON.parse(localStorage.getItem("cities"));
+  if (Array.isArray(savedCities)) {
+    !savedCities.includes(city) && savedCities.push(city);
+  } else {
+    savedCities = [city];
+  }
+  localStorage.setItem("cities", JSON.stringify(savedCities));
+}
+
+function deleteCity(city) {
+  const savedCities = JSON.parse(localStorage.getItem("cities"));
+  const newCities = savedCities.filter((e) => e !== city);
+
+  localStorage.setItem("cities", JSON.stringify(newCities));
+}
+
+function verifyIfSaved(cityName) {
+  const savedCities = JSON.parse(localStorage.getItem("cities"));
+  if (Array.isArray(savedCities)) {
+    savedCities.includes(cityName)
+      ? (saveCityBtn.checked = true)
+      : (saveCityBtn.checked = false);
+  }
+}
+
+function convert(input) {
+  return moment(input, ["hh:mm A"]).format("HH:mm");
+}
+
+//*Queries
+async function searchCity(cityName) {
+  try {
+    modalLoading.classList.remove("hidden");
+    const { data, status } = await api(`forecast.json?q=${cityName}&days=3`);
+    renderSearchCity(data);
+    renderDataCity(data);
+    // renderSearchCityDesktop(data);
+    modalLoading.classList.add("hidden");
+    console.log("metodo search", data);
+    return data;
+  } catch (e) {
+    console.error(e);
+    searchedCityModal.innerText = cityName;
+    modalFail.classList.remove("hidden");
+    closeModalFailed.addEventListener("click", (e) => {
+      modalFail.classList.add("hidden");
+    });
+    modalLoading.classList.add("hidden");
+  }
+}
+
+async function searchUserCity(cityName) {
+  // modalFirstLoading.classList.remove("hidden");
+  const { data, status } = await api(`forecast.json?q=${cityName}&days=3`);
+  console.log("userCity", data);
+  renderDataCity(data);
+  // modalFirstLoading.classList.add("hidden");
+}
+
+function getUserCity() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+  }
 }
 
 //*Renders
 function renderSearchCity(data) {
   const cityItem = document.createElement("article");
+  cityItem.style.background = `url('/src/assets/img/customCityF.png') center/cover no-repeat`;
   cityItem.setAttribute("id", data.location.name);
   cityItem.classList.add("mainSearchMobile__city");
   const cityName = document.createElement("h2");
@@ -91,6 +161,50 @@ function renderSearchCity(data) {
   });
 }
 function renderDataCity(data) {
+  const sunriseTime24h = convert(
+    data.forecast.forecastday[0].astro.sunrise
+  ).replace(/:/g, "");
+  console.log("sunriseTime24h", sunriseTime24h);
+  const sunsetTime24h = convert(
+    data.forecast.forecastday[0].astro.sunset
+  ).replace(/:/g, "");
+  console.log("sunsetTime24h", sunsetTime24h);
+  const currentTime = data.location.localtime.split(" ")[1].replace(/:/g, "");
+  console.log(
+    "compare time",
+    sunriseTime24h < currentTime && sunsetTime24h > currentTime
+  );
+
+  if (sunriseTime24h < currentTime && sunsetTime24h > currentTime) {
+    if (data.current.condition.text.toLowerCase().includes("cloudy")) {
+      mainWeather.style.background = `url('/src/assets/img/cloudy_light.png') center/cover no-repeat`;
+    } else if (data.current.condition.text.toLowerCase().includes("sunny")) {
+      mainWeather.style.background = `url('/src/assets/img/sunny_light.png') center/cover no-repeat`;
+    } else if (
+      data.current.condition.text.toLowerCase().includes("rain") ||
+      data.current.condition.text.toLowerCase().includes("drizzle")
+    ) {
+      mainWeather.style.background = `url('/src/assets/img/rain_light.png') center/cover no-repeat`;
+    } else if (data.current.condition.text.toLowerCase().includes("clear")) {
+      mainWeather.style.background = `url('/src/assets/img/clear__light.png') center/cover no-repeat`;
+    } else {
+      mainWeather.style.background = `url('/src/assets/img/cloudy_light.png') center/cover no-repeat`;
+    }
+  } else {
+    if (data.current.condition.text.toLowerCase().includes("cloudy")) {
+      mainWeather.style.background = `url('/src/assets/img/cloudy__night.png') center/cover no-repeat`;
+    } else if (
+      data.current.condition.text.toLowerCase().includes("rain") ||
+      data.current.condition.text.toLowerCase().includes("drizzle")
+    ) {
+      mainWeather.style.background = `url('/src/assets/img/rain__night.png') center/cover no-repeat`;
+    } else if (data.current.condition.text.toLowerCase().includes("clear")) {
+      mainWeather.style.background = `url('/src/assets/img/clear__night.png') center/cover no-repeat`;
+    } else {
+      mainWeather.style.background = `url('/src/assets/img/cloudy__night.png') center/cover no-repeat`;
+    }
+  }
+
   titleCityDesktop.innerText = data.location.name;
   cityNameHeader.innerText = data.location.name;
   sunriseInfo.innerText = data.forecast.forecastday[0].astro.sunrise;
@@ -117,6 +231,8 @@ function renderDataCity(data) {
   weatherPerHoursSlider.innerHTML = byHours;
   renderNextDays(data.forecast.forecastday);
   location.hash = `#dataCity=${data.location.name}`;
+  verifyIfSaved(titleCityDesktop.innerText);
+
   // mobileNav.classList.add("mobileNav_Hidden");
 }
 function renderNextDays(data, responsive = "mobile") {
@@ -177,72 +293,39 @@ function renderNextDays(data, responsive = "mobile") {
   });
   // }
 }
+function renderSavedCities() {
+  // console.log(savedCities);
+  const savedCities = JSON.parse(localStorage.getItem("cities"));
 
-function renderSearchCityDesktop(data) {
-  cityNameHeader.innerText = data.location.name;
-  titleCityDesktop.innerText = data.location.name;
-  sunriseInfo.innerText = data.forecast.forecastday[0].astro.sunrise;
-  sunsetInfo.innerText = data.forecast.forecastday[0].astro.sunset;
-  dateInfo.innerText = data.forecast.forecastday[0].date;
-  hourInfo.innerText = data.location.localtime.split(" ")[1];
-  temperature.innerText = data.current.temp_c + "°C";
-  typeWeatherInfo.innerText = data.current.condition.text;
-  pressure.innerText = data.current.pressure_mb + "mb";
-  humadity.innerText = data.current.humidity + "%";
-  windSpeed.innerText = data.current.wind_kph + "km/h";
+  const savedCitiesContainer = document.querySelector(".savedCities");
+  savedCitiesContainer.innerHTML = "";
+  if (Array.isArray(savedCities)) {
+    savedCities.map((e) => {
+      savedCities.innerHTML = "";
+      const cityItem = document.createElement("article");
+      cityItem.style.background = `url('/src/assets/img/customCityF.png') center/cover no-repeat`;
+      cityItem.classList.add("savedCities__city");
+      cityItem.setAttribute("id", e);
+      const cityName = document.createElement("h2");
+      cityName.classList.add("cityName");
+      cityName.innerText = e;
+      cityItem.appendChild(cityName);
+      savedCitiesContainer.appendChild(cityItem);
 
-  const byHours = data.forecast.forecastday[0].hour
-    .map((e) => {
-      return `
-        <div class="sliderWeatherHours__weatherHour">
-            <h3 class="weatherHour__hour">${e.time.split(" ")[1]}</h3>
-            <img src="${e.condition.icon}" alt="" class="weatherHour__icon">
-            <h3 class="weatherHour__temp">${e.temp_c}°C</h3>
-        </div>
-    `;
-    })
-    .join(" ");
-  weatherPerHoursSlider.innerHTML = byHours;
-  renderNextDays(data.forecast.forecastday, "desktop");
-  location.hash = `#dataCity=${data.location.name}`;
-}
-
-//*Queries
-async function searchCity(cityName, endpoint = "current.json") {
-  modalLoading.classList.remove("hidden");
-  try {
-    if (endpoint === "current.json") {
-      const { data, status } = await api(`current.json?q=${cityName}`);
-      renderSearchCity(data);
-    } else if (endpoint === "forecast.json") {
-      const { data, status } = await api(`forecast.json?q=${cityName}&days=3`);
-      renderSearchCityDesktop(data);
-    }
-  } catch (e) {
-    console.error(e);
-    searchedCityModal.innerText = cityName;
-    modalFail.classList.remove("hidden");
-    closeModalFailed.addEventListener("click", (e) => {
-      modalFail.classList.add("hidden");
+      cityItem.addEventListener("click", async (e) => {
+        modalLoading.classList.remove("hidden");
+        const { data, status } = await api(
+          `forecast.json?q=${e.target.id}&days=3`
+        );
+        location.hash = `#dataCity=${e.target.id}`;
+        modalLoading.classList.add("hidden");
+        renderDataCity(data);
+      });
     });
-  }
-  modalLoading.classList.add("hidden");
-}
-
-async function searchUserCity(cityName) {
-  // modalFirstLoading.classList.remove("hidden");
-  const { data, status } = await api(`forecast.json?q=${cityName}&days=3`);
-  console.log("userCity", data);
-  renderDataCity(data);
-  renderSearchCityDesktop(data);
-  // modalFirstLoading.classList.add("hidden");
-}
-
-function getUserCity() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else {
-    console.log("Geolocation is not supported by this browser.");
+    const noCities = document.createElement("h2");
+    noCities.innerText = "It seems that you haven't saved anything yet";
+    savedCities.appendChild(noCities);
   }
 }
 
@@ -261,7 +344,7 @@ searchCityDesktop.addEventListener("keypress", (e) => {
     const inputValue =
       searchCityDesktop.value.charAt(0).toUpperCase() +
       searchCityDesktop.value.slice(1);
-    searchCity(inputValue, "forecast.json");
+    searchCity(inputValue);
   }
 });
 
@@ -284,4 +367,19 @@ for (let i = 0; i < darkModeBtn.length; i++) {
   });
 }
 
+saveCityBtn.addEventListener("change", (e) => {
+  const city = titleCityDesktop.innerText;
+  console.log(e.target.checked);
+
+  if (!e.target.checked) {
+    deleteCity(city);
+    // renderSavedCities();
+  } else {
+    saveCities(city);
+    // renderSavedCities();
+  }
+  renderSavedCities();
+});
+
+renderSavedCities();
 getUserCity();
