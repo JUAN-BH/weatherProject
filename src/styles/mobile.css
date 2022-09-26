@@ -52,6 +52,15 @@ body.dark .main .main__header .header__containerInputSearch {
 body.dark .main .main__header .header__containerInputSearch .searchCityDesktop {
   background-color: #2E4669;
 }
+body.dark .main .mainWeather .mainWeather__infoCity ul {
+  text-shadow: 2px -2px #19283F;
+}
+body.dark .main .mainWeather .mainWeather__Temp h1 {
+  text-shadow: 2px -2px #19283F;
+}
+body.dark .main .mainWeather .mainWeather__Temp p {
+  text-shadow: 2px -2px #19283F;
+}
 body.dark .main .weatherPerHours .weatherPerHours__sliderWeatherHours {
   background-color: #2E4669;
 }
@@ -73,6 +82,9 @@ body.dark .mainNext2Days__content .content__city {
 }
 body.dark .savedCities h2 {
   color: #19283F;
+}
+body.dark .savedCities .noCitiesFeedBack {
+  color: #fff;
 }
 body.dark .modal article {
   background-color: #2E4669;
@@ -367,6 +379,31 @@ h1 {
   transform: translateY(0);
 }
 
+.modalExceedPetitions {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.471);
+  background-color: #fff;
+}
+.modalExceedPetitions__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto 0;
+  text-align: center;
+}
+.modalExceedPetitions__content img {
+  width: 300px;
+  height: 300px;
+}
+
 main {
   position: relative;
   width: 100%;
@@ -385,7 +422,6 @@ main .mainWeather {
   padding: 18px;
   border-radius: 8px;
   background-color: #c3c3c3;
-  background: url("../assets/img/clear__light.png") center/cover no-repeat;
 }
 main .mainWeather__saveCity {
   position: absolute;
@@ -453,7 +489,8 @@ main .mainWeather .mainWeather__infoCity .infoCity__titleCityDesktop {
 }
 main .mainWeather .mainWeather__infoCity ul {
   list-style: none;
-  font-size: 1.2rem;
+  text-shadow: 0px 0px #fff;
+  font-size: 1.4rem;
 }
 main .mainWeather .mainWeather__Temp {
   display: grid;
@@ -463,10 +500,12 @@ main .mainWeather .mainWeather__Temp {
   padding-top: 40px;
 }
 main .mainWeather .mainWeather__Temp h1 {
+  text-shadow: 0px 0px #fff;
   font-size: 6.4rem;
 }
 main .mainWeather .mainWeather__Temp p {
-  font-size: 1.6rem;
+  text-shadow: 0px 0px #fff;
+  font-size: 2rem;
 }
 main .mainWeather .mainWeather__stats {
   position: absolute;
@@ -594,6 +633,12 @@ main .savedCities {
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+main .savedCities .noCitiesFeedBack {
+  margin: 200px auto;
+  font-size: 2rem;
+  text-align: center;
+  color: #19283F;
 }
 main .savedCities__city {
   display: flex;

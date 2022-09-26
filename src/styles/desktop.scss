@@ -135,12 +135,12 @@ body {
                             margin-bottom: 6px;
 
                             h1 {
-                                font-size: 3.2rem;
+                                font-size: 4rem;
                             }
                         }
 
                         li {
-                            font-size: 1.6rem;
+                            font-size: 1.7rem;
                         }
                     }
 
@@ -165,14 +165,17 @@ body {
 
                         .stats__pressure {
                             @include stats($colorText, $white, 124px, 80px);
+                            font-size: 1.4rem;
                         }
 
                         .stats__humadity {
                             @include stats($green, $colorText, 124px, 80px);
+                            font-size: 1.4rem;
                         }
 
                         .stats__wind {
                             @include stats($white, $colorText, 124px, 80px);
+                            font-size: 1.4rem;
                         }
                     }
                 }
@@ -233,8 +236,8 @@ body {
 
 
                 &__city {
-                    flex-grow: 1;
-                    width: 40%;
+                    // flex-grow: 1;
+                    width: 542px;
                     height: 220px;
                     margin-right: 36px;
                     margin-bottom: 36px;
@@ -242,7 +245,8 @@ body {
                     padding-left: 46px;
 
                     h2 {
-                        font-size: 2.8rem;
+                        font-size: 3rem;
+                        margin-bottom: 30px;
                     }
                 }
             }

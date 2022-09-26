@@ -140,6 +140,7 @@ body {
 body.dark {
     background-color: $nightColor;
     color: $white;
+    // text-shadow: 2px -2px $white;
 
     .menuIconMobile {
         svg {
@@ -201,6 +202,26 @@ body.dark {
             }
         }
 
+        .mainWeather {
+            .mainWeather__infoCity {
+
+                ul {
+                    text-shadow: 2px -2px $colorText;
+                }
+            }
+
+            .mainWeather__Temp {
+                h1 {
+                    text-shadow: 2px -2px $colorText;
+                }
+
+                p {
+                    text-shadow: 2px -2px $colorText;
+                }
+            }
+
+        }
+
         .weatherPerHours {
             .weatherPerHours__sliderWeatherHours {
                 background-color: $nightPanel;
@@ -243,6 +264,10 @@ body.dark {
         h2 {
             // font-size: 2.8rem;
             color: $colorText;
+        }
+
+        .noCitiesFeedBack {
+            color: $white;
         }
 
     }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,11 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="icon" href="./src/assets/icons/weatherIcon.svg" />
-  <link rel="stylesheet" href="./src/styles/mobile.css" />
-  <link rel="stylesheet" href="./src/styles/desktop.css">
+  <link rel="icon" href="../src/assets/icons/weatherIcon.svg" />
+  <link rel="stylesheet" href="../src/styles/mobile.css" />
+  <link rel="stylesheet" href="../src/styles/desktop.css">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
-
 <body>
   <header>
     <section class="headerMobileMain">
@@ -112,8 +114,7 @@
     </nav>
   </header>
   <main>
-
-    <section class="navDesktop">
+    <section class="navDesktop animate__animated animate__fadeIn" >
       <div class="navDesktop__title">
         <span class="title__log">
           <svg width="41" height="36" viewBox="0 0 41 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="weatherLogo">
@@ -155,8 +156,7 @@
       </ul>
     </section>
 
-    <section class="main">
-
+    <section class="main animate__animated animate__fadeIn">
       <article class="main__header">
         <label class="header__containerInputSearch">
           <span class="containerInputSearch__searchIcon">
@@ -175,47 +175,45 @@
         </div> -->
 
       </article>
-
-      <section class="mainWeather">
+      <section class="mainWeather ">
         <div class="mainWeather__saveCity">
           <label class="switch">
             <input type="checkbox" class="saveCityBtn" />
             <span class="slider round"></span>
           </label>
         </div>
-        <article class="mainWeather__infoCity">
+        <article class="mainWeather__infoCity ">
           <ul>
             <li class="infoCity__titleCityDesktop">
-              <h1 class="titleCityDesktop__title">Cali</h1>
+              <h1 class="titleCityDesktop__title "></h1>
             </li>
-            <li>Sunrise: <span class="sunriseInfo"></span></li>
-            <li>Sunset: <span class="sunsetInfo"></span></li>
+            <li>Sunrise: <span class="sunriseInfo "></span></li>
+            <li>Sunset: <span class="sunsetInfo "></span></li>
           </ul>
           <ul>
-            <li class="dateInfo">08/31/2022</li>
-            <li class="hourInfo">8:29 AM</li>
+            <li class="dateInfo "></li>
+            <li class="hourInfo "></li>
           </ul>
         </article>
-        <article class="mainWeather__Temp">
-          <h1 class="tempInfo">22°C</h1>
-          <p class="typeWeatherInfo">Partly Cloud</p>
+        <article class="mainWeather__Temp ">
+          <h1 class="tempInfo "></h1>
+          <p class="typeWeatherInfo "></p>
         </article>
         <article class="mainWeather__stats">
           <div class="stats__pressure">
             <p>Pressure</p>
-            <p class="pressureInfo">1018mb</p>
+            <p class="pressureInfo "></p>
           </div>
           <div class="stats__humadity">
             <p>Humadity</p>
-            <p class="humadityInfo">78%</p>
+            <p class="humadityInfo "></p>
           </div>
           <div class="stats__wind">
             <p>Wind speed</p>
-            <p class="windSpeedInfo">90 km/h</p>
+            <p class="windSpeedInfo "></p>
           </div>
         </article>
       </section>
-
       <section class="weatherPerHours">
         <article class="weatherPerHours__header">
           <h2>Today</h2>
@@ -232,47 +230,32 @@
             </span>
           </h2>
         </article>
-        <article class="weatherPerHours__sliderWeatherHours"></article>
+        <article class="weatherPerHours__sliderWeatherHours">
+          <div class="sliderWeatherHours__weatherHour "></div>
+        </article>
       </section>
-
-      
     </section>
-
-    <section class="savedCities">
+    <section class="savedCities animate__animated animate__fadeIn">
       <!-- <article class="savedCities__city">
         <h2 class="cityName">Hola</h2>
-      </article> -->
-      
+      </article> -->      
     </section>
-
-    <section class="mainNext2Days">
+    <section class="mainNext2Days animate__animated animate__fadeIn">
       <h1 class="mainNext2Days__title">Next 2 days</h1>
       <article class="mainNext2Days__content">
-        <div class="content__city">
-          <p class="city__dayDate">2022-09-09</p>
+        <div class="content__city ">
+          <!-- <p class="city__dayDate">2022-09-09</p>
           <div class="city__info">
             <h2 class="info__temp">Hola</h2>
             <p class="info__cityCondition">Partly cloudy</p>
-          </div>
+          </div> -->
         </div>
       </article>
     </section>
-
-    <!-- <section class="mainNext2DaysMobile">
-      <article class="mainNext2Days__city">
-            <p class="city__dayDate">2022-09-09</p>
-          <div class="city__info">
-            <h2 class="info__temp">Hola</h2>
-            <p class="info__cityCondition">Partly cloudy</p>
-          </div>
-        </article>
-    </section> -->
-
-    <section class="mainSearchMobile hidden"></section>
+    <section class="mainSearchMobile animate__animated animate__fadeIn hidden"></section>
     
   </main>
-
-  <section class="modalLoading hidden ">
+  <section class="modalLoading hidden">
     <span class="modalLoading__logo animate__animated">
       <svg width="100" height="100" viewBox="0 0 41 36" fill="none" xmlns="http://www.w3.org/2000/svg"class="weatherLogo" >
         <path d="M37.172 24.6204C38.121 21.9508 38.415 19.0923 38.0293 16.2855C37.6436 13.4786 36.5896 10.8054 34.9558 8.49066C33.322 6.17594 31.1562 4.2874 28.6406 2.98388C26.1251 1.68037 23.3332 1 20.5 1C17.6668 1 14.8749 1.68037 12.3594 2.98388C9.84379 4.2874 7.67802 6.17594 6.04422 8.49066C4.41042 10.8054 3.35636 13.4786 2.97069 16.2855C2.58503 19.0923 2.87904 21.9508 3.828 24.6204M1 24.6194H40H1ZM5.291 29.8014H20.997H5.291ZM25.39 29.8014H28.372H25.39ZM32.764 29.8014H35.746H32.764ZM11.106 34.9824H30.863H11.106Z" fill="#19283F"/>
@@ -284,20 +267,23 @@
   <section class="modalFail modal hidden">
     <article>
       <h2>
-        we couldn't find the city
         <span class="citySearched"></span>
       </h2>
       <button class="closeModalFail">Please try again</button>
   </section>
-  <section class="modalFirstLoading modal hidden">
+  <section class="modalFirstLoading modal">
     <span class="modalFirstLoading__logo animate__animated"></span>
+  </section>
+  <section class="modalExceedPetitions modal hidden">
+    <article class="modalExceedPetitions__content">
+      <img src="../src/assets/img/error_Image.png" alt="error image">
+      <h1>We have exceed petitions today, please come back later or tomorrow.</h1>
+    </article>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
-  <script src="./src/scripts/nodes.js"></script>
-  <script src="./src/scripts/navigation.js"></script>
-  <script src="./src/scripts/cities.js"></script>
-  <script src="./src/scripts/main.js"></script>
+  <script type="module" src="../src/navigation/navigation.js"></script>
+  <script type="module" src="../src/index.js"></script>
 </body>
 
 </html>

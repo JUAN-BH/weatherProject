@@ -52,6 +52,15 @@ body.dark .main .main__header .header__containerInputSearch {
 body.dark .main .main__header .header__containerInputSearch .searchCityDesktop {
   background-color: #2E4669;
 }
+body.dark .main .mainWeather .mainWeather__infoCity ul {
+  text-shadow: 2px -2px #19283F;
+}
+body.dark .main .mainWeather .mainWeather__Temp h1 {
+  text-shadow: 2px -2px #19283F;
+}
+body.dark .main .mainWeather .mainWeather__Temp p {
+  text-shadow: 2px -2px #19283F;
+}
 body.dark .main .weatherPerHours .weatherPerHours__sliderWeatherHours {
   background-color: #2E4669;
 }
@@ -73,6 +82,9 @@ body.dark .mainNext2Days__content .content__city {
 }
 body.dark .savedCities h2 {
   color: #19283F;
+}
+body.dark .savedCities .noCitiesFeedBack {
+  color: #fff;
 }
 body.dark .modal article {
   background-color: #2E4669;
@@ -277,10 +289,10 @@ h1 {
     margin-bottom: 6px;
   }
   body main .main .mainWeather .mainWeather__infoCity .infoCity__titleCityDesktop h1 {
-    font-size: 3.2rem;
+    font-size: 4rem;
   }
   body main .main .mainWeather .mainWeather__infoCity li {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
   body main .main .mainWeather .mainWeather__Temp {
     place-items: unset;
@@ -309,6 +321,7 @@ h1 {
     text-align: center;
     background-color: #19283F;
     border-radius: 8px;
+    font-size: 1.4rem;
   }
   body main .main .mainWeather .mainWeather__stats .stats__humadity {
     display: flex;
@@ -320,6 +333,7 @@ h1 {
     text-align: center;
     background-color: #CCE16A;
     border-radius: 8px;
+    font-size: 1.4rem;
   }
   body main .main .mainWeather .mainWeather__stats .stats__wind {
     display: flex;
@@ -331,6 +345,7 @@ h1 {
     text-align: center;
     background-color: #fff;
     border-radius: 8px;
+    font-size: 1.4rem;
   }
   body main .main .weatherPerHours {
     display: flex;
@@ -378,8 +393,7 @@ h1 {
     overflow-y: scroll;
   }
   body main .savedCities__city {
-    flex-grow: 1;
-    width: 40%;
+    width: 542px;
     height: 220px;
     margin-right: 36px;
     margin-bottom: 36px;
@@ -387,7 +401,8 @@ h1 {
     padding-left: 46px;
   }
   body main .savedCities__city h2 {
-    font-size: 2.8rem;
+    font-size: 3rem;
+    margin-bottom: 30px;
   }
   body main .mainNext2Days {
     grid-column: 3/4;
