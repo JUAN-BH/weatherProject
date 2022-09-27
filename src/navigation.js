@@ -3,14 +3,14 @@ const { sections, elements, modals } = nodes;
 window.addEventListener("load", navigation, false);
 window.addEventListener("hashchange", navigation, false);
 
-window.addEventListener("resize", () => {
-  const screen = window.innerWidth;
-  if (screen >= 1024) {
-    renderDashBoard();
-  } else if (screen < 1024) {
-    renderMainMobile();
-  }
-});
+// window.addEventListener("resize", () => {
+//   const screen = window.innerWidth;
+//   if (screen >= 1024) {
+//     renderDashBoard();
+//   } else if (screen < 1024) {
+//     renderMainMobile();
+//   }
+// });
 
 function renderSearchMobile() {
   sections.mainHeaderMobile.classList.add("hidden");
