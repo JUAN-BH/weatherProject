@@ -115,7 +115,7 @@ class City {
 
   renderSearchCityMobile() {
     const cityItem = document.createElement("article");
-    cityItem.style.background = `url('/src/assets/img/customCity_Crop.png') center/cover no-repeat`;
+    cityItem.style.background = `url('./assets/img/customCity_Crop.png') center/cover no-repeat`;
     cityItem.setAttribute("id", this.data.location.name);
     cityItem.classList.add("mainSearchMobile__city");
     const cityName = document.createElement("h2");
