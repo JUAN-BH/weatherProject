@@ -4,11 +4,15 @@ window.addEventListener("load", navigation, false);
 window.addEventListener("hashchange", navigation, false);
 
 window.addEventListener("resize", (e) => {
-  const screenWithd = e.target.screen.width;
+  const screenWithd = e.target.innerWidth;
   if (elements.searchCityInput !== document.activeElement) {
     if (screenWithd >= 1024) {
+      // console.log(screenWithd);
+      // console.log("ENTRO Grwande");
       renderDashBoard();
     } else if (screenWithd < 1024) {
+      // console.log(screenWithd);
+      // console.log("ENTRO Pequeno");
       renderMainMobile();
     }
   }
