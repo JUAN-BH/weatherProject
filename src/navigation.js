@@ -10,7 +10,15 @@ window.addEventListener("resize", () => {
     renderDashBoard();
   } else if (screenWithd < 1024) {
     console.log("entro pequeno");
-    renderMainMobile();
+    // renderMainMobile();
+    sections.mainHeaderMobile.classList.add("hidden");
+    sections.savedCitiesHeaderMobile.classList.add("hidden");
+    sections.nextDaysHeaderMobile.classList.add("hidden");
+    sections.searchHeaderMobile.classList.remove("hidden");
+
+    sections.mainWeather.classList.add("hidden");
+    sections.weatherPerHours.classList.add("hidden");
+    sections.savedCities.classList.add("hidden");
   }
 });
 
