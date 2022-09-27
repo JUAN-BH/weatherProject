@@ -32,7 +32,7 @@ function renderSearchMobile() {
   window.addEventListener("resize", (e) => {
     const screenWithd = e.target.screen.width;
     if (screenWithd === screenWithd) {
-      renderSearchMobile();
+      // renderSearchMobile();
     }
   });
 }
