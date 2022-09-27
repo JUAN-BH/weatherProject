@@ -26,15 +26,8 @@ function renderSearchMobile() {
 
   sections.mainSearchMobile.classList.remove("hidden");
 
-  elements.searchCityInput.focus();
+  // elements.searchCityInput.focus();
   sections.mobileNav.classList.add("mobileNav_Hidden");
-
-  window.addEventListener("resize", (e) => {
-    const screenWithd = e.target.screen.width;
-    if (screenWithd === screenWithd) {
-      // renderSearchMobile();
-    }
-  });
 }
 function renderSaveCitiesMobile() {
   sections.mainHeaderMobile.classList.add("hidden");
