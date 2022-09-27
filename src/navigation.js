@@ -5,12 +5,12 @@ window.addEventListener("hashchange", navigation, false);
 
 window.addEventListener("resize", (e) => {
   const screenWithd = e.target.screen.width;
-  if (screenWithd >= 1024) {
-    console.log("entro grande");
-    renderDashBoard();
-  } else if (screenWithd < 1024) {
-    console.log("entro pequeno");
-    renderMainMobile();
+  if (screenWithd !== screenWithd) {
+    if (screenWithd >= 1024) {
+      renderDashBoard();
+    } else if (screenWithd < 1024) {
+      renderMainMobile();
+    }
   }
 });
 
