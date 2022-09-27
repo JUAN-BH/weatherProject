@@ -412,7 +412,7 @@ main {
 main .navDesktop {
   display: none;
 }
-main .main__header {
+main .mainDesktop__header {
   display: none;
 }
 main .mainWeather {

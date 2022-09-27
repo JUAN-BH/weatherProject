@@ -3,11 +3,8 @@ import nodes from "../utils/nodes.js";
 const { sections, elements, modals } = nodes;
 const api = axios.create({
   baseURL: "https://weatherapi-com.p.rapidapi.com/",
-  // params: {
-  //   key: "57be9319ebmsh663cc9b4c17c821p1f1099jsneea5309eaf01",
-  // },
   headers: {
-    "X-RapidAPI-Key": "57be9319ebmsh663cc9b4c17c821p1f1099jsneea5309eaf01",
+    "X-RapidAPI-Key": process.env.WEATHER_API,
     "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
   },
 });
@@ -21,7 +18,7 @@ export function renderSavedCities() {
     savedCities.map((e) => {
       savedCities.innerHTML = "";
       const cityItem = document.createElement("article");
-      cityItem.style.background = `url('/src/assets/img/customCity_Crop.png') center/cover no-repeat`;
+      cityItem.style.background = `url('assets/img/customCity_Crop.png') center/cover no-repeat`;
       cityItem.classList.add("savedCities__city");
       cityItem.setAttribute("id", e);
       const cityName = document.createElement("h2");

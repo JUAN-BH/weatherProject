@@ -5,7 +5,7 @@ const { sections, elements, modals } = nodes;
 const apiLocation = axios.create({
   baseURL: "https://us1.locationiq.com/v1/",
   params: {
-    key: "pk.b438038ca0eeaeead4ee265d6a2c006c",
+    key: process.env.LOCATION_API,
   },
 });
 
@@ -30,6 +30,8 @@ async function showError(error) {
   //     alert("An unknown error occurred.");
   //     break;
   // }
+  await initialCity();
+
   modals.modalFirstLoading.classList.add("hidden");
   modals.modalFail.classList.remove("hidden");
 
@@ -38,8 +40,6 @@ async function showError(error) {
   modals.closeModalFailed.addEventListener("click", (e) => {
     modals.modalFail.classList.add("hidden");
   });
-
-  await initialCity();
 }
 
 async function displayLocation(latitude, longitude) {

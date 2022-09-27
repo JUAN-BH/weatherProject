@@ -3,11 +3,8 @@ import nodes from "./nodes.js";
 const { sections, elements, modals } = nodes;
 const api = axios.create({
   baseURL: "https://weatherapi-com.p.rapidapi.com/",
-  // params: {
-  //   key: "57be9319ebmsh663cc9b4c17c821p1f1099jsneea5309eaf01",
-  // },
   headers: {
-    "X-RapidAPI-Key": "57be9319ebmsh663cc9b4c17c821p1f1099jsneea5309eaf01",
+    "X-RapidAPI-Key": process.env.WEATHER_API,
     "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
   },
 });

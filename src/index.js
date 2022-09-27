@@ -1,6 +1,14 @@
+import "./styles/globales.scss";
+import "./styles/headersMobile.scss";
+import "./styles/modals.scss";
+import "./styles/mobile.css";
+import "./styles/mobile.scss";
+import "./styles/desktop.css";
+import "./styles/desktop.scss";
+
 import nodes from "./utils/nodes.js";
-import { searchCity, searchUserCity } from "./utils/fetchData.js";
-import { deleteCity, saveCities, verifyIfSaved } from "./utils/localStorage.js";
+import { searchCity } from "./utils/fetchData.js";
+import { deleteCity, saveCities } from "./utils/localStorage.js";
 import { renderSavedCities } from "./templates/savedCities.js";
 import { getUserCity } from "./utils/userCity.js";
 const { sections, elements, modals } = nodes;

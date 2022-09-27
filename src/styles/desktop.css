@@ -46,25 +46,25 @@ body.dark input {
 body.dark main .navDesktop__content .btnActiveNavDesktop {
   border-bottom: 2px solid #fff;
 }
-body.dark .main .main__header .header__containerInputSearch {
+body.dark .mainDesktop .mainDesktop__header .header__containerInputSearch {
   background-color: #2E4669;
 }
-body.dark .main .main__header .header__containerInputSearch .searchCityDesktop {
+body.dark .mainDesktop .mainDesktop__header .header__containerInputSearch .searchCityDesktop {
   background-color: #2E4669;
 }
-body.dark .main .mainWeather .mainWeather__infoCity ul {
+body.dark .mainDesktop .mainWeather .mainWeather__infoCity ul {
   text-shadow: 2px -2px #19283F;
 }
-body.dark .main .mainWeather .mainWeather__Temp h1 {
+body.dark .mainDesktop .mainWeather .mainWeather__Temp h1 {
   text-shadow: 2px -2px #19283F;
 }
-body.dark .main .mainWeather .mainWeather__Temp p {
+body.dark .mainDesktop .mainWeather .mainWeather__Temp p {
   text-shadow: 2px -2px #19283F;
 }
-body.dark .main .weatherPerHours .weatherPerHours__sliderWeatherHours {
+body.dark .mainDesktop .weatherPerHours .weatherPerHours__sliderWeatherHours {
   background-color: #2E4669;
 }
-body.dark .main .weatherPerHours .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
+body.dark .mainDesktop .weatherPerHours .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
   background-color: #566F95;
 }
 body.dark .mainSearchMobile__city .cityName,
@@ -235,19 +235,19 @@ h1 {
   body main .navDesktop__content .content__darkMode .slider.round:before {
     border-radius: 50%;
   }
-  body main .main {
+  body main .mainDesktop {
     grid-column: 2/3;
     grid-row: 1/3;
     display: flex;
     flex-direction: column;
     padding: 24px 23px 0 23px;
   }
-  body main .main__header {
+  body main .mainDesktop__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  body main .main__header .header__containerInputSearch {
+  body main .mainDesktop__header .header__containerInputSearch {
     display: flex;
     align-items: center;
     width: 30%;
@@ -256,23 +256,23 @@ h1 {
     border-radius: 8px;
     background-color: #F3F3F3;
   }
-  body main .main__header .header__containerInputSearch input {
+  body main .mainDesktop__header .header__containerInputSearch input {
     width: 70%;
     padding: 4px;
     font-size: 1.6rem;
     border: none;
     background-color: #F3F3F3;
   }
-  body main .main__header .header__containerInputSearch input:focus {
+  body main .mainDesktop__header .header__containerInputSearch input:focus {
     outline: none;
   }
-  body main .main__header .header__containerInputSearch .containerInputSearch__searchIcon {
+  body main .mainDesktop__header .header__containerInputSearch .containerInputSearch__searchIcon {
     display: flex;
     justify-content: center;
     margin-right: 12px;
     margin-right: 2px;
   }
-  body main .main .mainWeather {
+  body main .mainDesktop .mainWeather {
     display: flex;
     flex-direction: column;
     height: 350px;
@@ -281,28 +281,28 @@ h1 {
     border-radius: 8px;
     background-color: #c3c3c3;
   }
-  body main .main .mainWeather .mainWeather__saveCity {
+  body main .mainDesktop .mainWeather .mainWeather__saveCity {
     top: -54px;
   }
-  body main .main .mainWeather .mainWeather__infoCity .infoCity__titleCityDesktop {
+  body main .mainDesktop .mainWeather .mainWeather__infoCity .infoCity__titleCityDesktop {
     display: block;
     margin-bottom: 6px;
   }
-  body main .main .mainWeather .mainWeather__infoCity .infoCity__titleCityDesktop h1 {
+  body main .mainDesktop .mainWeather .mainWeather__infoCity .infoCity__titleCityDesktop h1 {
     font-size: 4rem;
   }
-  body main .main .mainWeather .mainWeather__infoCity li {
+  body main .mainDesktop .mainWeather .mainWeather__infoCity li {
     font-size: 1.7rem;
   }
-  body main .main .mainWeather .mainWeather__Temp {
+  body main .mainDesktop .mainWeather .mainWeather__Temp {
     place-items: unset;
     padding-top: 17px;
     margin-left: 157px;
   }
-  body main .main .mainWeather .mainWeather__Temp h1 {
+  body main .mainDesktop .mainWeather .mainWeather__Temp h1 {
     font-size: 4.8rem;
   }
-  body main .main .mainWeather .mainWeather__stats {
+  body main .mainDesktop .mainWeather .mainWeather__stats {
     position: initial;
     align-self: center;
     width: 567px;
@@ -311,7 +311,7 @@ h1 {
     background-color: transparent;
     margin-top: 24px;
   }
-  body main .main .mainWeather .mainWeather__stats .stats__pressure {
+  body main .mainDesktop .mainWeather .mainWeather__stats .stats__pressure {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -323,7 +323,7 @@ h1 {
     border-radius: 8px;
     font-size: 1.4rem;
   }
-  body main .main .mainWeather .mainWeather__stats .stats__humadity {
+  body main .mainDesktop .mainWeather .mainWeather__stats .stats__humadity {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -335,7 +335,7 @@ h1 {
     border-radius: 8px;
     font-size: 1.4rem;
   }
-  body main .main .mainWeather .mainWeather__stats .stats__wind {
+  body main .mainDesktop .mainWeather .mainWeather__stats .stats__wind {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -347,27 +347,27 @@ h1 {
     border-radius: 8px;
     font-size: 1.4rem;
   }
-  body main .main .weatherPerHours {
+  body main .mainDesktop .weatherPerHours {
     display: flex;
     flex-direction: column;
     height: 100%;
     padding-top: 24px;
   }
-  body main .main .weatherPerHours__header {
+  body main .mainDesktop .weatherPerHours__header {
     display: block;
   }
-  body main .main .weatherPerHours__header h2 {
+  body main .mainDesktop .weatherPerHours__header h2 {
     font-size: 2.4rem;
   }
-  body main .main .weatherPerHours__header .twoDaysMore {
+  body main .mainDesktop .weatherPerHours__header .twoDaysMore {
     display: none;
   }
-  body main .main .weatherPerHours__sliderWeatherHours {
+  body main .mainDesktop .weatherPerHours__sliderWeatherHours {
     height: 100%;
     padding-left: 24px;
     background-color: #FBEFEF;
   }
-  body main .main .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
+  body main .mainDesktop .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
     display: flex;
     flex-direction: column;
     justify-content: space-between;

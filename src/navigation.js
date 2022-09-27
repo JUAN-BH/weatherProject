@@ -1,17 +1,17 @@
-import nodes from "../utils/nodes.js";
+import nodes from "./utils/nodes.js";
 const { sections, elements, modals } = nodes;
-window.addEventListener("DOMContentLoaded", navigation, false);
+window.addEventListener("load", navigation, false);
 window.addEventListener("hashchange", navigation, false);
 
 window.addEventListener("resize", () => {
-  if (window.screen.width > 1024) {
+  const screen = window.innerWidth;
+  console.log("screen REsIZE", screen);
+  if (screen >= 1024) {
+    console.log("ENTRO  GRANDE");
     renderDashBoard();
-    sections.mainNext2DaysContent.style.display = "flex";
-  } else {
+  } else if (screen < 1024) {
+    console.log("ENTRO  pequeno");
     renderMainMobile();
-    renderDashBoard();
-
-    sections.mainNext2DaysContent.style.display = "none";
   }
 });
 
@@ -25,11 +25,7 @@ function renderSearchMobile() {
   sections.weatherPerHours.classList.add("hidden");
   sections.savedCities.classList.add("hidden");
 
-  if (window.screen.width > 1024) {
-    sections.mainNext2DaysContent.style.display = "flex";
-  } else {
-    sections.mainNext2DaysContent.style.display = "none";
-  }
+  sections.mainNext2DaysContent.style.display = "none";
 
   sections.mainSearchMobile.classList.remove("hidden");
 
@@ -46,11 +42,7 @@ function renderSaveCitiesMobile() {
   sections.weatherPerHours.classList.add("hidden");
   sections.mainSearchMobile.classList.add("hidden");
 
-  if (window.screen.width > 1024) {
-    sections.mainNext2DaysContent.style.display = "flex";
-  } else {
-    sections.mainNext2DaysContent.style.display = "none";
-  }
+  sections.mainNext2DaysContent.style.display = "none";
 
   sections.savedCities.classList.remove("hidden");
 
@@ -61,15 +53,12 @@ function renderMainMobile() {
   sections.savedCitiesHeaderMobile.classList.add("hidden");
   sections.nextDaysHeaderMobile.classList.add("hidden");
   sections.mainHeaderMobile.classList.remove("hidden");
+  sections.mainInfo.classList.remove("hidden");
 
   sections.mainSearchMobile.classList.add("hidden");
   sections.savedCities.classList.add("hidden");
 
-  if (window.screen.width > 1024) {
-    sections.mainNext2DaysContent.style.display = "flex";
-  } else {
-    sections.mainNext2DaysContent.style.display = "none";
-  }
+  sections.mainNext2DaysContent.style.display = "none";
 
   sections.mainWeather.classList.remove("hidden");
   sections.weatherPerHours.classList.remove("hidden");
@@ -87,11 +76,7 @@ function renderNextDays() {
   sections.savedCities.classList.add("hidden");
   sections.mainSearchMobile.classList.add("hidden");
 
-  if (window.screen.width > 1024) {
-    sections.mainNext2DaysContent.style.display = "flex";
-  } else {
-    sections.mainNext2DaysContent.style.display = "flex";
-  }
+  sections.mainNext2DaysContent.style.display = "flex";
 
   sections.mobileNav.classList.add("mobileNav_Hidden");
 }
@@ -116,16 +101,18 @@ function renderDashBoard() {
 
   elements.savedCitiesBtn.classList.remove("btnActiveNavDesktop");
   elements.dashBoardBtn.classList.add("btnActiveNavDesktop");
-  console.log("ENTRO ENTRO");
+  sections.mainNext2DaysContent.style.display = "flex";
 }
 
 function navigation() {
-  if (location.hash.startsWith("city=")) {
-    renderMainMobile();
+  console.log("screenSize NAV", window.innerWidth);
+  const screen = window.innerWidth;
+  if (screen >= 1024) {
+    console.log("ENTRO  GRANDE");
     renderDashBoard();
-  } else {
+  } else if (screen < 1024) {
+    console.log("ENTRO  pequeno");
     renderMainMobile();
-    renderDashBoard();
   }
 }
 
