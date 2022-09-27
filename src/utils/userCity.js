@@ -16,30 +16,44 @@ async function showPosition(position) {
 }
 
 async function showError(error) {
-  switch (error.code) {
-    case error.PERMISSION_DENIED:
-      alert("User denied the request for Geolocation.");
-      break;
-    case error.POSITION_UNAVAILABLE:
-      alert("Location information is unavailable.");
-      break;
-    case error.TIMEOUT:
-      alert("The request to get user location timed out.");
-      break;
-    case error.UNKNOWN_ERROR:
-      alert("An unknown error occurred.");
-      break;
+  // switch (error.code) {
+  //   case error.PERMISSION_DENIED:
+  //     alert("User denied the request for Geolocation.");
+  //     break;
+  //   case error.POSITION_UNAVAILABLE:
+  //     alert("Location information is unavailable.");
+  //     break;
+  //   case error.TIMEOUT:
+  //     alert("The request to get user location timed out.");
+  //     break;
+  //   case error.UNKNOWN_ERROR:
+  //     alert("An unknown error occurred.");
+  //     break;
+  // }
+
+  if (error.code === error.PERMISSION_DENIED) {
+    await initialCity();
+
+    modals.modalFirstLoading.classList.add("hidden");
+    modals.modalFail.classList.remove("hidden");
+
+    modals.errorMessage.innerText = `Turn on your ubication if you want to see your city`;
+    modals.closeModalFailed.innerText = "Ok";
+    modals.closeModalFailed.addEventListener("click", (e) => {
+      modals.modalFail.classList.add("hidden");
+    });
+  } else {
+    await initialCity();
+
+    modals.modalFirstLoading.classList.add("hidden");
+    modals.modalFail.classList.remove("hidden");
+
+    modals.errorMessage.innerText = `We didn't get your location, but you can still search whatever city you like`;
+    modals.closeModalFailed.innerText = "Ok";
+    modals.closeModalFailed.addEventListener("click", (e) => {
+      modals.modalFail.classList.add("hidden");
+    });
   }
-  await initialCity();
-
-  modals.modalFirstLoading.classList.add("hidden");
-  modals.modalFail.classList.remove("hidden");
-
-  modals.errorMessage.innerText = `We didn't get your location, but you can still search whatever city you like`;
-  modals.closeModalFailed.innerText = "Ok";
-  modals.closeModalFailed.addEventListener("click", (e) => {
-    modals.modalFail.classList.add("hidden");
-  });
 }
 
 async function displayLocation(latitude, longitude) {
