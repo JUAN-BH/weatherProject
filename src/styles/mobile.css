@@ -46,25 +46,142 @@ body.dark input {
 body.dark main .navDesktop__content .btnActiveNavDesktop {
   border-bottom: 2px solid #fff;
 }
-body.dark .main .main__header .header__containerInputSearch {
+body.dark .mainDesktop .mainDesktop__header .header__containerInputSearch {
   background-color: #2E4669;
 }
-body.dark .main .main__header .header__containerInputSearch .searchCityDesktop {
+body.dark .mainDesktop .mainDesktop__header .header__containerInputSearch .searchCityDesktop {
   background-color: #2E4669;
 }
-body.dark .main .mainWeather .mainWeather__infoCity ul {
+body.dark .mainDesktop .mainWeather .mainWeather__infoCity ul {
   text-shadow: 2px -2px #19283F;
 }
-body.dark .main .mainWeather .mainWeather__Temp h1 {
+body.dark .mainDesktop .mainWeather .mainWeather__Temp h1 {
   text-shadow: 2px -2px #19283F;
 }
-body.dark .main .mainWeather .mainWeather__Temp p {
+body.dark .mainDesktop .mainWeather .mainWeather__Temp p {
   text-shadow: 2px -2px #19283F;
 }
-body.dark .main .weatherPerHours .weatherPerHours__sliderWeatherHours {
+body.dark .mainDesktop .weatherPerHours .weatherPerHours__sliderWeatherHours {
   background-color: #2E4669;
 }
-body.dark .main .weatherPerHours .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
+body.dark .mainDesktop .weatherPerHours .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
+  background-color: #566F95;
+}
+body.dark .mainSearchMobile__city .cityName,
+body.dark .mainSearchMobile__city .cityTemp {
+  color: #19283F;
+}
+body.dark .mainSearchMobile__city .cityTemp {
+  color: #fff;
+}
+body.dark .mainNext2Days {
+  background-color: #2E4669;
+}
+body.dark .mainNext2Days__content .content__city {
+  background-color: #566F95;
+}
+body.dark .savedCities h2 {
+  color: #19283F;
+}
+body.dark .savedCities .noCitiesFeedBack {
+  color: #fff;
+}
+body.dark .modal article {
+  background-color: #2E4669;
+}
+body.dark .modal button {
+  background-color: #566F95;
+  color: #fff;
+}
+body.dark ::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.menuIconMobile {
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+.menuIconMobile svg {
+  margin: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+  color: #19283F;
+}
+
+body {
+  padding: 12px 22px;
+  transition: all 0.4s;
+}
+
+body.dark {
+  background-color: #19283F;
+  color: #fff;
+}
+body.dark .menuIconMobile svg path {
+  stroke: #fff;
+}
+body.dark .weatherLogo path {
+  stroke: #fff;
+}
+body.dark svg {
+  fill: #fff;
+}
+body.dark svg path {
+  fill: #fff;
+}
+body.dark .navDesktop,
+body.dark .weatherPerHours__sliderWeatherHours,
+body.dark .header__containerInputSearch,
+body.dark .mainWeather__stats,
+body.dark .mobileNav,
+body.dark .headerMobileSearch__inputSearch {
+  background-color: #2E4669;
+}
+body.dark input {
+  color: #fff;
+  background-color: #2E4669;
+}
+body.dark main .navDesktop__content .btnActiveNavDesktop {
+  border-bottom: 2px solid #fff;
+}
+body.dark .mainDesktop .mainDesktop__header .header__containerInputSearch {
+  background-color: #2E4669;
+}
+body.dark .mainDesktop .mainDesktop__header .header__containerInputSearch .searchCityDesktop {
+  background-color: #2E4669;
+}
+body.dark .mainDesktop .mainWeather .mainWeather__infoCity ul {
+  text-shadow: 2px -2px #19283F;
+}
+body.dark .mainDesktop .mainWeather .mainWeather__Temp h1 {
+  text-shadow: 2px -2px #19283F;
+}
+body.dark .mainDesktop .mainWeather .mainWeather__Temp p {
+  text-shadow: 2px -2px #19283F;
+}
+body.dark .mainDesktop .weatherPerHours .weatherPerHours__sliderWeatherHours {
+  background-color: #2E4669;
+}
+body.dark .mainDesktop .weatherPerHours .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
   background-color: #566F95;
 }
 body.dark .mainSearchMobile__city .cityName,
@@ -269,7 +386,7 @@ h1 {
 }
 
 .mobileNav_Hidden {
-  left: -800px;
+  left: -1000px;
 }
 
 .headerMobileNextDays {
@@ -288,6 +405,123 @@ h1 {
   justify-content: center;
 }
 .headerMobileNextDays__arrowBack svg {
+  margin: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+  color: #19283F;
+}
+
+body {
+  padding: 12px 22px;
+  transition: all 0.4s;
+}
+
+body.dark {
+  background-color: #19283F;
+  color: #fff;
+}
+body.dark .menuIconMobile svg path {
+  stroke: #fff;
+}
+body.dark .weatherLogo path {
+  stroke: #fff;
+}
+body.dark svg {
+  fill: #fff;
+}
+body.dark svg path {
+  fill: #fff;
+}
+body.dark .navDesktop,
+body.dark .weatherPerHours__sliderWeatherHours,
+body.dark .header__containerInputSearch,
+body.dark .mainWeather__stats,
+body.dark .mobileNav,
+body.dark .headerMobileSearch__inputSearch {
+  background-color: #2E4669;
+}
+body.dark input {
+  color: #fff;
+  background-color: #2E4669;
+}
+body.dark main .navDesktop__content .btnActiveNavDesktop {
+  border-bottom: 2px solid #fff;
+}
+body.dark .mainDesktop .mainDesktop__header .header__containerInputSearch {
+  background-color: #2E4669;
+}
+body.dark .mainDesktop .mainDesktop__header .header__containerInputSearch .searchCityDesktop {
+  background-color: #2E4669;
+}
+body.dark .mainDesktop .mainWeather .mainWeather__infoCity ul {
+  text-shadow: 2px -2px #19283F;
+}
+body.dark .mainDesktop .mainWeather .mainWeather__Temp h1 {
+  text-shadow: 2px -2px #19283F;
+}
+body.dark .mainDesktop .mainWeather .mainWeather__Temp p {
+  text-shadow: 2px -2px #19283F;
+}
+body.dark .mainDesktop .weatherPerHours .weatherPerHours__sliderWeatherHours {
+  background-color: #2E4669;
+}
+body.dark .mainDesktop .weatherPerHours .weatherPerHours__sliderWeatherHours .sliderWeatherHours__weatherHour {
+  background-color: #566F95;
+}
+body.dark .mainSearchMobile__city .cityName,
+body.dark .mainSearchMobile__city .cityTemp {
+  color: #19283F;
+}
+body.dark .mainSearchMobile__city .cityTemp {
+  color: #fff;
+}
+body.dark .mainNext2Days {
+  background-color: #2E4669;
+}
+body.dark .mainNext2Days__content .content__city {
+  background-color: #566F95;
+}
+body.dark .savedCities h2 {
+  color: #19283F;
+}
+body.dark .savedCities .noCitiesFeedBack {
+  color: #fff;
+}
+body.dark .modal article {
+  background-color: #2E4669;
+}
+body.dark .modal button {
+  background-color: #566F95;
+  color: #fff;
+}
+body.dark ::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.menuIconMobile {
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+.menuIconMobile svg {
   margin: auto;
 }
 

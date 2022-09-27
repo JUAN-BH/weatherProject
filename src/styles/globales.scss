@@ -8,7 +8,7 @@ $green: #CCE16A;
 $white: #fff;
 $panelDesktop: #FBEFEF;
 $breakPoints: (sm: 640px,
-    lg: 1024px,
+    mm:797px, lg: 1024px,
 );
 
 @mixin media-up($breakPoint) {
