@@ -106,6 +106,10 @@ function navigation() {
     renderDashBoard();
   } else if (screen < 1024) {
     renderMainMobile();
+  } else if (location.hash.startsWith("/city=") && screen >= 1024) {
+    renderDashBoard();
+  } else if (location.hash.startsWith("/city=") && screen < 1024) {
+    renderMainMobile();
   }
 }
 
