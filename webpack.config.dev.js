@@ -65,7 +65,7 @@ module.exports = {
     watchFiles: path.join(__dirname, "./**"),
     compress: true,
     historyApiFallback: true,
-    port: 3007,
+    port: 3005,
     open: true,
   },
 };

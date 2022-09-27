@@ -5,12 +5,9 @@ window.addEventListener("hashchange", navigation, false);
 
 window.addEventListener("resize", () => {
   const screen = window.innerWidth;
-  console.log("screen REsIZE", screen);
   if (screen >= 1024) {
-    console.log("ENTRO  GRANDE");
     renderDashBoard();
   } else if (screen < 1024) {
-    console.log("ENTRO  pequeno");
     renderMainMobile();
   }
 });
@@ -82,7 +79,6 @@ function renderNextDays() {
 }
 function renderSavedCitiesDesktop() {
   sections.mainInfo.classList.add("hidden");
-  // console.log(mainNext2Days);
   sections.mainNext2Days.style.display = "none";
 
   sections.savedCities.classList.remove("hidden");
@@ -105,13 +101,10 @@ function renderDashBoard() {
 }
 
 function navigation() {
-  console.log("screenSize NAV", window.innerWidth);
   const screen = window.innerWidth;
   if (screen >= 1024) {
-    console.log("ENTRO  GRANDE");
     renderDashBoard();
   } else if (screen < 1024) {
-    console.log("ENTRO  pequeno");
     renderMainMobile();
   }
 }
