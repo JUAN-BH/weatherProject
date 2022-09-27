@@ -5,10 +5,12 @@ window.addEventListener("hashchange", navigation, false);
 
 window.addEventListener("resize", (e) => {
   const screenWithd = e.target.screen.width;
-  if (screenWithd >= 1024) {
-    renderDashBoard();
-  } else if (screenWithd < 1024) {
-    renderMainMobile();
+  if (elements.searchCityInput !== document.activeElement) {
+    if (screenWithd >= 1024) {
+      renderDashBoard();
+    } else if (screenWithd < 1024) {
+      renderMainMobile();
+    }
   }
 });
 
