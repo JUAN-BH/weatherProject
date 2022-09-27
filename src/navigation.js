@@ -5,12 +5,10 @@ window.addEventListener("hashchange", navigation, false);
 
 window.addEventListener("resize", (e) => {
   const screenWithd = e.target.screen.width;
-  if (screenWithd !== screenWithd) {
-    if (screenWithd >= 1024) {
-      renderDashBoard();
-    } else if (screenWithd < 1024) {
-      renderMainMobile();
-    }
+  if (screenWithd >= 1024) {
+    renderDashBoard();
+  } else if (screenWithd < 1024) {
+    renderMainMobile();
   }
 });
 
@@ -30,6 +28,13 @@ function renderSearchMobile() {
 
   elements.searchCityInput.focus();
   sections.mobileNav.classList.add("mobileNav_Hidden");
+
+  window.addEventListener("resize", (e) => {
+    const screenWithd = e.target.screen.width;
+    if (screenWithd === screenWithd) {
+      renderSearchMobile();
+    }
+  });
 }
 function renderSaveCitiesMobile() {
   sections.mainHeaderMobile.classList.add("hidden");
