@@ -5,7 +5,7 @@ const { sections, elements, modals } = nodes;
 const apiLocation = axios.create({
   baseURL: "https://us1.locationiq.com/v1/",
   params: {
-    key: process.env.LOCATION_API,
+    key: process.env.LOCATIONAPI,
   },
 });
 

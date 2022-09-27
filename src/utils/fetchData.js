@@ -4,7 +4,7 @@ const { sections, elements, modals } = nodes;
 const api = axios.create({
   baseURL: "https://weatherapi-com.p.rapidapi.com/",
   headers: {
-    "X-RapidAPI-Key": process.env.WEATHER_API,
+    "X-RapidAPI-Key": process.env.WEATHERAPI,
     "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
   },
 });
