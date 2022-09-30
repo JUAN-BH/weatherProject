@@ -23,7 +23,7 @@ export function renderSavedCities() {
       cityItem.setAttribute("id", e);
       const cityName = document.createElement("h2");
       cityName.classList.add("cityName");
-      // cityName.setAttribute("id", e);
+      cityName.setAttribute("id", e);
       cityName.innerText = e;
       cityItem.appendChild(cityName);
       savedCitiesContainer.appendChild(cityItem);
